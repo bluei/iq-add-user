@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>About</h2>
+<h3>What you need to know about this application</h3>
+
+<h2>@ViewBag.Message</h2>
+
+<p>This program is designed to automate the creation of new users in IQMS</p>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Web Config Settings:</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+            <li>PlainfieldExpenseDocPath - This is the default path of the Plainfield expense document library.</li>
+            <li>PlainfieldDefaultDocTeamIds - These are the Team Member IDs that will be added to every Expense Library Document Team. (IQMS and AP Staff)</li>
+        </ul>
+    </div>
+</div>
+
+<button id="b1">TEST</button>
+
+
+<div class="container starthidden" id="p1">
+    <h2>Please Wait</h2>
+    <p>Processing your request.  This process should be completed before you finish reading all of this.</p>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+            Processing...
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+        $(document).ready(function () {
+            $('div.starthidden').hide();
+        });
+        $(document).ready(function () {
+            $('#b1').click(function () {
+                $('#p1').show(200);
+                $('#b1').prop('disabled', true);
+            });
+        });
+    </script>
+
+}

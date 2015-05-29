@@ -1,0 +1,93 @@
+﻿@model iq_add_user.Models.IQMSUser
+
+@{
+    ViewBag.Title = "Success";
+    bool hasErrors = false;
+    if (ViewBag.AddUserErrors != null)
+    {
+        if (ViewBag.AddUserErrors.Count > 0)
+        {
+            hasErrors = true;
+        }
+    }
+}
+
+<h2>Success!</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName) has been added.</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>First Name</dt><dd>@Html.DisplayFor(model => model.FirstName)</dd>
+        <dt>Last Name</dt><dd>@Html.DisplayFor(model => model.LastName)</dd>
+        <dt>Username</dt><dd>@Html.DisplayFor(model => model.Username)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Email)</dt><dd>@Html.DisplayFor(model => model.Email)</dd>
+
+        <dt>
+            Copied from
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CopyFrom)
+        </dd>
+
+        <dt>
+            Emp No.
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpNo)
+        </dd>
+
+        <dt>
+            Eplant Id
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EplantId)
+        </dd>
+
+        <dt>
+            Job Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+
+    </dl>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">Operations Completed:</h3>
+        </div>
+        <div class="panel-body">
+            <ul>
+                    @foreach (var item in ViewBag.AddUserResults)
+                    {
+                        <li>@item</li>
+                    }
+            </ul>
+        </div>
+    </div>
+
+    @if (hasErrors)
+    {
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">Errors Encountered</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    @foreach (var item in ViewBag.AddUserErrors)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Username }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

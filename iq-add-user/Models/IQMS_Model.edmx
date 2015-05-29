@@ -1,0 +1,1665 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IQMS_Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DOC_LIBRARY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="DESCRIP" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="PATH" Type="varchar2" MaxLength="150" />
+          <Property Name="DEFAULT_EXT" Type="varchar2" MaxLength="10" />
+          <Property Name="TYPE" Type="varchar2" MaxLength="15" />
+          <Property Name="REVISION_PATH" Type="varchar2" MaxLength="150" />
+          <Property Name="KEEP_REVISIONS" Type="char" MaxLength="1" />
+          <Property Name="SEQ_WORKFLOW" Type="char" MaxLength="1" />
+          <Property Name="REPOSITORY_ALIAS" Type="varchar2" MaxLength="250" />
+          <Property Name="REPOSITORY_DATA" Type="varchar2" MaxLength="250" />
+          <Property Name="TEAM_MEMBER_ONLY" Type="varchar2" MaxLength="1" />
+          <Property Name="CONVERT_TO_PDF" Type="varchar2" MaxLength="1" />
+          <Property Name="PDF_PATH" Type="varchar2" MaxLength="150" />
+          <Property Name="EPLANT_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="WF_TYPE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="WF_KIND" Type="varchar2" MaxLength="1" />
+          <Property Name="DOC_CHANGE_DESC_MANDATORY" Type="varchar2" MaxLength="1" />
+          <Property Name="IS_REPOSITORY_UNRESTRICTED" Type="varchar2" MaxLength="1" />
+          <Property Name="CONVERT_TO_PDF_DISPLAY" Type="varchar2" MaxLength="1" />
+          <Property Name="IS_CONFIDENTIAL" Type="varchar2" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="DOC_TEAM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="DOC_LIBRARY_ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="TEAM_MEMBER_ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="SEQ" Type="number" Precision="3" Scale="0" />
+          <Property Name="TYPE" Type="varchar2" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="EPLANT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="ECOMPANY_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="NAME" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="ADDRESS1" Type="varchar2" MaxLength="60" />
+          <Property Name="ADDRESS2" Type="varchar2" MaxLength="60" />
+          <Property Name="ADDRESS3" Type="varchar2" MaxLength="60" />
+          <Property Name="CITY" Type="varchar2" MaxLength="30" />
+          <Property Name="STATE" Type="varchar2" MaxLength="20" />
+          <Property Name="ZIP" Type="varchar2" MaxLength="10" />
+          <Property Name="COUNTRY" Type="varchar2" MaxLength="60" />
+          <Property Name="PHONE" Type="varchar2" MaxLength="25" />
+          <Property Name="FAX" Type="varchar2" MaxLength="25" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="250" />
+          <Property Name="ECODE" Type="varchar2" MaxLength="10" />
+          <Property Name="EID" Type="number" Precision="15" Scale="0" />
+          <Property Name="EDATE_TIME" Type="date" />
+          <Property Name="ECOPY" Type="char" MaxLength="1" />
+          <Property Name="GL_PLUG_VALUE" Type="varchar2" MaxLength="50" />
+          <Property Name="COMPANY" Type="varchar2" MaxLength="60" />
+          <Property Name="SMTP_SERVER" Type="varchar2" MaxLength="50" />
+          <Property Name="LAST_PS" Type="number" Precision="15" Scale="0" />
+          <Property Name="LAST_AR" Type="number" Precision="15" Scale="0" />
+          <Property Name="LAST_PO" Type="number" Precision="15" Scale="0" />
+          <Property Name="LAST_SO" Type="number" Precision="15" Scale="0" />
+          <Property Name="LAST_RMA" Type="number" Precision="15" Scale="0" />
+          <Property Name="LAST_RFQ" Type="number" Precision="15" Scale="0" />
+          <Property Name="LAST_PO_REC" Type="number" Precision="15" Scale="0" />
+          <Property Name="LAST_PHYS" Type="number" Precision="15" Scale="0" />
+          <Property Name="TAGINV_STATE" Type="varchar2" MaxLength="20" />
+          <Property Name="TAGINV_STATE_DATE" Type="date" />
+          <Property Name="SUFFIX" Type="varchar2" MaxLength="25" />
+          <Property Name="COSTING_SYSTEM" Type="varchar2" MaxLength="10" />
+          <Property Name="EIN_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="NATIVE_CURR" Type="varchar2" MaxLength="3" />
+          <Property Name="LAST_BOL" Type="number" Precision="15" Scale="0" />
+          <Property Name="TAGINV_METHOD" Type="varchar2" MaxLength="30" />
+          <Property Name="FAX_POLL_PATH" Type="varchar2" MaxLength="255" />
+          <Property Name="FAX_POLL_INTERVAL" Type="number" Precision="10" Scale="0" />
+          <Property Name="ARCUSTO_ID_INTERCOMP" Type="number" Precision="15" Scale="0" />
+          <Property Name="MAINFORM_COLOR" Type="number" Precision="15" Scale="0" />
+          <Property Name="SEPARATE_FISCAL_YEAR" Type="char" MaxLength="1" />
+          <Property Name="METRIC_UOM" Type="varchar2" MaxLength="1" />
+          <Property Name="INACTIVE" Type="varchar2" MaxLength="1" />
+          <Property Name="USE_EPLANT_PK_TKT_PARAMS" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_ORDERS_BASED" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_SO_MODE_PKLIST_BY_DIV" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_PICK_BY_CUSTOMER" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_ONE_PER_CUSTOMER" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_SHOW_ALL" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_KEEP_REL_SEPARATE" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_USE_SHIP_DEFAULT" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_CONV_USE_SYSDATE" Type="varchar2" MaxLength="1" />
+          <Property Name="RF_SERIALIZED_ROUTING" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_SORT_NULL_RAN_TOP" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_ENABLE_VOLUME_CALC" Type="varchar2" MaxLength="1" />
+          <Property Name="CALC_SHIP_DAY_START_VALID" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_DO_NOT_PRNT_PS_ON_CONV" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_DO_NOT_PRNT_BOL_ON_CONV" Type="varchar2" MaxLength="1" />
+          <Property Name="PS_EVAL_OVERSHIP" Type="varchar2" MaxLength="1" />
+          <Property Name="PS_VERIFY_INVENTORY" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_SO_SYNC_AFTER_EDI" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_ASSIGN_ASN_ON_PRINT_LBL" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_LABEL_MUST_BE_DISPO" Type="varchar2" MaxLength="1" />
+          <Property Name="COUNTRY_CODE" Type="varchar2" MaxLength="2" />
+          <Property Name="PK_TKT_STAGE_BY_PALLET" Type="varchar2" MaxLength="1" />
+          <Property Name="RFQ_XLS_PATH" Type="varchar2" MaxLength="250" />
+          <Property Name="TAGINV_REQUIRE_ALL_COUNTED" Type="varchar2" MaxLength="1" />
+          <Property Name="PK_TKT_HARD_ALLOC_ON_PICK" Type="varchar2" MaxLength="1" />
+          <Property Name="LAST_AP" Type="number" Precision="15" Scale="0" />
+          <Property Name="IIS_SERVER_URL" Type="varchar2" MaxLength="255" />
+          <Property Name="IIS_PORT" Type="number" Precision="5" Scale="0" />
+          <Property Name="PCMON_LOG_INSTANCE" Type="varchar2" MaxLength="255" />
+          <Property Name="AUTHENTICATE_EMAIL" Type="varchar2" MaxLength="1" />
+          <Property Name="PASSWORD" Type="varchar2" MaxLength="50" />
+          <Property Name="USER_NAME" Type="varchar2" MaxLength="35" />
+          <Property Name="PK_TKT_PKLIST_BY_SO_DIV" Type="varchar2" MaxLength="1" />
+          <Property Name="APP_ICON" Type="blob" />
+          <Property Name="ENABLE_VEND_NUM_GEN" Type="number" Precision="1" Scale="0" />
+          <Property Name="ENABLE_CUST_NUM_GEN" Type="number" Precision="1" Scale="0" />
+          <Property Name="NOT_VISIBLE" Type="varchar2" MaxLength="1" />
+          <Property Name="EMAIL_PROFILE_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="EMAIL_BCC" Type="varchar2" MaxLength="250" />
+          <Property Name="SMTP_PORT" Type="number" Precision="15" Scale="0" />
+          <Property Name="RELIEVE_TO_PARENT_METHOD" Type="varchar2" MaxLength="1" />
+          <Property Name="EMAIL_SECURE" Type="varchar2" MaxLength="1" />
+          <Property Name="TZNAME" Type="varchar2" MaxLength="64" />
+          <Property Name="TZABBREV" Type="varchar2" MaxLength="64" />
+          <Property Name="LAST_AF" Type="number" Precision="15" Scale="0" />
+        </EntityType>
+        <EntityType Name="EXP_USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="USER_NAME" Type="varchar2" MaxLength="35" />
+          <Property Name="PR_EMP_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="VENDOR_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="VENDOR_CONTACT_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="EXP_APPROVER" Type="varchar2" MaxLength="35" />
+          <Property Name="MILEAGE_RATE" Type="number" Precision="6" Scale="2" />
+          <Property Name="NO_APPROVER_EDIT" Type="varchar2" MaxLength="1" />
+          <Property Name="INACTIVE" Type="varchar2" MaxLength="1" />
+          <Property Name="WORKFLOW" Type="varchar2" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="PR_EMP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="PR_DEPARTMENT_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="PR_PAYTYPE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="PR_PAYGROUP_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="EMPNO" Type="varchar2" MaxLength="25" />
+          <Property Name="FIRST_NAME" Type="varchar2" MaxLength="30" />
+          <Property Name="MIDDLE_NAME" Type="varchar2" MaxLength="30" />
+          <Property Name="LAST_NAME" Type="varchar2" MaxLength="30" />
+          <Property Name="SSNMBR" Type="varchar2" MaxLength="11" />
+          <Property Name="ADDR1" Type="varchar2" MaxLength="60" />
+          <Property Name="ADDR2" Type="varchar2" MaxLength="60" />
+          <Property Name="STATE" Type="varchar2" MaxLength="20" />
+          <Property Name="COUNTRY" Type="varchar2" MaxLength="30" />
+          <Property Name="ZIP" Type="varchar2" MaxLength="10" />
+          <Property Name="PHONE_NUMBER" Type="varchar2" MaxLength="25" />
+          <Property Name="CITY" Type="varchar2" MaxLength="30" />
+          <Property Name="CHARGE_RATE" Type="number" Precision="12" Scale="2" />
+          <Property Name="STATUS_CODE" Type="char" MaxLength="10" />
+          <Property Name="DATE_HIRED" Type="date" />
+          <Property Name="TERMINATION_DATE" Type="date" />
+          <Property Name="LAST_REVIEW_DATE" Type="date" />
+          <Property Name="NEXT_REVIEW_DATE" Type="date" />
+          <Property Name="RACE" Type="varchar2" MaxLength="20" />
+          <Property Name="SEX" Type="char" MaxLength="1" />
+          <Property Name="BASIS" Type="char" MaxLength="1" />
+          <Property Name="RATE" Type="number" Precision="12" Scale="4" />
+          <Property Name="BIRTH_DATE" Type="date" />
+          <Property Name="CITIZEN" Type="char" MaxLength="3" />
+          <Property Name="MARRIED_STATUS" Type="char" MaxLength="1" />
+          <Property Name="EIC_MARRIED_STATUS" Type="char" MaxLength="1" />
+          <Property Name="EIC" Type="number" Precision="12" Scale="2" />
+          <Property Name="LABOR_INDICATOR" Type="char" MaxLength="1" />
+          <Property Name="NICKNAME" Type="varchar2" MaxLength="30" />
+          <Property Name="HANDICAP" Type="number" Precision="15" Scale="0" />
+          <Property Name="COMMENT1" Type="varchar2" MaxLength="2000" />
+          <Property Name="PLUGIN_ENTITY_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="CONTACT" Type="varchar2" MaxLength="30" />
+          <Property Name="CONTACT_PHONE" Type="varchar2" MaxLength="25" />
+          <Property Name="JOB_TITLE" Type="varchar2" MaxLength="30" />
+          <Property Name="CUSER1" Type="varchar2" MaxLength="60" />
+          <Property Name="CUSER2" Type="varchar2" MaxLength="60" />
+          <Property Name="CUSER3" Type="varchar2" MaxLength="60" />
+          <Property Name="CUSER4" Type="varchar2" MaxLength="60" />
+          <Property Name="CUSER5" Type="varchar2" MaxLength="60" />
+          <Property Name="CUSER6" Type="varchar2" MaxLength="60" />
+          <Property Name="NUSER1" Type="number" Precision="15" Scale="6" />
+          <Property Name="NUSER2" Type="number" Precision="15" Scale="6" />
+          <Property Name="NUSER3" Type="number" Precision="15" Scale="6" />
+          <Property Name="NUSER4" Type="number" Precision="15" Scale="6" />
+          <Property Name="NUSER5" Type="number" Precision="15" Scale="6" />
+          <Property Name="RESET_BENEFITS_DATE" Type="date" />
+          <Property Name="EMP_STATUS_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="ELEMENTS_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="TA_SETTINGS_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="TA_SHIFT_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="TURN_OFF_DD" Type="char" MaxLength="1" />
+          <Property Name="SNDOP_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="RESIDENT_VISA_EXPR" Type="date" />
+          <Property Name="OT1_PR_PAYTYPE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="OT2_PR_PAYTYPE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="OT3_PR_PAYTYPE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="HR_JOB_DESCRIP_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="BADGENO" Type="varchar2" MaxLength="25" />
+          <Property Name="PK_HIDE" Type="char" MaxLength="1" />
+          <Property Name="WEB_USERID" Type="varchar2" MaxLength="35" />
+          <Property Name="EMP_LEVEL_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="SUTA_TAX_STATE" Type="varchar2" MaxLength="20" />
+          <Property Name="SWT_STATE" Type="varchar2" MaxLength="20" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="250" />
+          <Property Name="SUPERVISOR" Type="char" MaxLength="1" />
+          <Property Name="SUPERVISOR_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="HR_MARRIED_STATUS" Type="char" MaxLength="1" />
+          <Property Name="PR_HOLIDAY_PAYTYPE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="LAST_CALC_DATE" Type="date" />
+          <Property Name="AUTO_PR_PAYTYPE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="MOBILE" Type="varchar2" MaxLength="25" />
+          <Property Name="PAGER" Type="varchar2" MaxLength="25" />
+          <Property Name="VETERAN_STATUS" Type="varchar2" MaxLength="50" />
+          <Property Name="MFGCELL_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="EMP_PROV_CD" Type="varchar2" MaxLength="2" />
+          <Property Name="SUFFIX" Type="varchar2" MaxLength="4" />
+          <Property Name="EW2" Type="varchar2" MaxLength="1" />
+          <Property Name="CURRENCY_LANGUAGE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="CURRENCY_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="DISTLIST" Type="char" MaxLength="1" />
+          <Property Name="DISABLED" Type="varchar2" MaxLength="1" />
+          <Property Name="QUAL_DIS_VET" Type="varchar2" MaxLength="1" />
+          <Property Name="ARM_FORC_VET" Type="varchar2" MaxLength="1" />
+          <Property Name="OTHER_PROT_VET" Type="varchar2" MaxLength="1" />
+          <Property Name="NEW_SEP_VET" Type="varchar2" MaxLength="1" />
+          <Property Name="SEPARATION_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="REMIT_TO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="VENDOR_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="ATTN" Type="varchar2" MaxLength="60" />
+          <Property Name="ADDR1" Type="varchar2" MaxLength="60" />
+          <Property Name="ADDR2" Type="varchar2" MaxLength="60" />
+          <Property Name="ADDR3" Type="varchar2" MaxLength="60" />
+          <Property Name="CITY" Type="char" MaxLength="30" />
+          <Property Name="STATE" Type="varchar2" MaxLength="20" />
+          <Property Name="ZIP" Type="char" MaxLength="10" />
+          <Property Name="COUNTRY" Type="char" MaxLength="30" />
+          <Property Name="CURRENCY_ID" Type="char" MaxLength="3" />
+          <Property Name="PHONE_NUMBER" Type="varchar2" MaxLength="25" />
+          <Property Name="FAX_NUMBER" Type="varchar2" MaxLength="25" />
+          <Property Name="PRIME_CONTACT" Type="char" MaxLength="30" />
+          <Property Name="ECODE" Type="varchar2" MaxLength="10" />
+          <Property Name="EID" Type="number" Precision="15" Scale="0" />
+          <Property Name="EDATE_TIME" Type="date" />
+          <Property Name="ECOPY" Type="char" MaxLength="1" />
+          <Property Name="USE_USA_MASK" Type="char" MaxLength="1" />
+          <Property Name="BANK_ACCT_NO" Type="varchar2" MaxLength="25" />
+          <Property Name="DEFAULT_REMIT_TO" Type="char" MaxLength="1" />
+          <Property Name="CD_CHECK_REPNAME" Type="varchar2" MaxLength="250" />
+          <Property Name="CD_CHECK_REMITANCE" Type="varchar2" MaxLength="250" />
+          <Property Name="AP_REMITTANCE_TYPE" Type="varchar2" MaxLength="12" />
+          <Property Name="BIC_SWIFT" Type="varchar2" MaxLength="25" />
+          <Property Name="IBAN" Type="varchar2" MaxLength="50" />
+          <Property Name="CLEARING_NO" Type="varchar2" MaxLength="15" />
+          <Property Name="INTL_PAY_TYPE" Type="varchar2" MaxLength="15" />
+          <Property Name="CONTACT_PHOTO" Type="blob" />
+          <Property Name="EFT_EMAIL_ADDR" Type="varchar2" MaxLength="250" />
+          <Property Name="REMIT_TO_NO" Type="varchar2" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="S_USER_GENERAL">
+          <Key>
+            <PropertyRef Name="USER_NAME" />
+          </Key>
+          <Property Name="USER_NAME" Type="varchar2" MaxLength="35" Nullable="false" />
+          <Property Name="AUTO_SHUT_TIME" Type="number" Precision="8" Scale="0" />
+          <Property Name="EPLANT_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="PO_LIMIT" Type="number" Precision="12" Scale="0" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="250" />
+          <Property Name="RMA_LIMIT" Type="number" Precision="12" Scale="0" />
+          <Property Name="PR_EMP_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="PO_APPROVER" Type="varchar2" MaxLength="35" />
+          <Property Name="PO_CAP_LIMIT" Type="number" Precision="12" Scale="0" />
+          <Property Name="PO_EXP_LIMIT" Type="number" Precision="12" Scale="0" />
+          <Property Name="WEB_MASTER" Type="char" MaxLength="1" />
+          <Property Name="PO_CANT_INCR_COST" Type="char" MaxLength="1" />
+          <Property Name="AUTO_SHUT_ACTION_CODE" Type="number" Precision="1" Scale="0" />
+          <Property Name="NOTIFICATION_PRINTER" Type="varchar2" MaxLength="250" />
+          <Property Name="DONT_CHANGE_POAP" Type="char" MaxLength="1" />
+          <Property Name="PO_BUYER" Type="char" MaxLength="1" />
+          <Property Name="PO_CAN_DENY" Type="char" MaxLength="1" />
+          <Property Name="PHONE_NUMBER" Type="varchar2" MaxLength="25" />
+          <Property Name="AUTO_SHUT_SHOPDATA" Type="char" MaxLength="1" />
+          <Property Name="LANGUAGE_CODE" Type="number" Precision="3" Scale="0" />
+          <Property Name="FORCE_PASSWORD_CHANGE" Type="varchar2" MaxLength="1" />
+          <Property Name="IS_NEW_USER" Type="varchar2" MaxLength="1" />
+          <Property Name="NEW_USER_TIMESTAMP" Type="date" />
+          <Property Name="SEC_PREVENT_SAME_USER_LOGIN" Type="varchar2" MaxLength="1" />
+          <Property Name="SEC_ALLOW_NON_DBA_SEC_INS" Type="varchar2" MaxLength="1" />
+          <Property Name="INV_ADJ_LIMIT" Type="number" Precision="14" Scale="2" />
+          <Property Name="IS_MOBILE_USER" Type="varchar2" MaxLength="1" />
+          <Property Name="RECEIPT_TOLERANCE" Type="number" Precision="5" Scale="2" />
+          <Property Name="AP_TOLERANCE" Type="number" Precision="5" Scale="2" />
+          <Property Name="EMAIL_SIGNATURE" Type="varchar2" MaxLength="2000" />
+          <Property Name="SHIP_MANAGER_WARNING" Type="varchar2" MaxLength="1" />
+          <Property Name="CUSER1" Type="varchar2" MaxLength="60" />
+          <Property Name="SP_PROFILE" Type="blob" />
+          <Property Name="SP_WORKSPACE" Type="blob" />
+          <Property Name="EXCLUDE_CUSTOMERS" Type="varchar2" MaxLength="1" />
+          <Property Name="EXCLUDE_VENDORS" Type="varchar2" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TEAM_MEMBER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="USERID" Type="varchar2" MaxLength="35" Nullable="false" />
+          <Property Name="NAME" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="TITLE" Type="varchar2" MaxLength="40" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="250" />
+          <Property Name="WORK_PATH" Type="varchar2" MaxLength="150" />
+          <Property Name="USED_DOC" Type="char" MaxLength="1" />
+          <Property Name="USED_CAR" Type="char" MaxLength="1" />
+          <Property Name="USED_APQP" Type="char" MaxLength="1" />
+          <Property Name="USED_ECO" Type="char" MaxLength="1" />
+          <Property Name="USED_PPAP" Type="char" MaxLength="1" />
+          <Property Name="EPLANT_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="USED_CAPA" Type="char" MaxLength="1" />
+          <Property Name="USED_DEV" Type="char" MaxLength="1" />
+          <Property Name="USED_PROD_PQ" Type="char" MaxLength="1" />
+          <Property Name="USED_PROC_PQ" Type="char" MaxLength="1" />
+          <Property Name="USED_MRB" Type="char" MaxLength="1" />
+          <Property Name="USED_PO" Type="varchar2" MaxLength="1" />
+          <Property Name="USED_CRM" Type="varchar2" MaxLength="1" />
+          <Property Name="USED_AUDIT" Type="varchar2" MaxLength="1" />
+          <Property Name="TYPE" Type="varchar2" MaxLength="10" />
+          <Property Name="OUT_OF_OFFICE" Type="varchar2" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="VENDOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="VENDORNO" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="COMPANY" Type="varchar2" MaxLength="60" />
+          <Property Name="ATTN" Type="char" MaxLength="30" />
+          <Property Name="ADDR1" Type="varchar2" MaxLength="60" />
+          <Property Name="ADDR2" Type="varchar2" MaxLength="60" />
+          <Property Name="ADDR3" Type="varchar2" MaxLength="60" />
+          <Property Name="CITY" Type="char" MaxLength="30" />
+          <Property Name="STATE" Type="varchar2" MaxLength="20" />
+          <Property Name="COUNTRY" Type="char" MaxLength="30" />
+          <Property Name="ZIP" Type="char" MaxLength="10" />
+          <Property Name="PHONE_NUMBER" Type="varchar2" MaxLength="25" />
+          <Property Name="FAX_NUMBER" Type="varchar2" MaxLength="25" />
+          <Property Name="E_MAIL_ADDR" Type="varchar2" MaxLength="250" />
+          <Property Name="CREDIT_LIMIT" Type="number" Precision="12" Scale="2" />
+          <Property Name="TERMS_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="YTD_PURCHASES" Type="number" Precision="12" Scale="2" />
+          <Property Name="FED_TAX_ID" Type="char" MaxLength="30" />
+          <Property Name="CUSER1" Type="varchar2" MaxLength="60" />
+          <Property Name="CUSER2" Type="varchar2" MaxLength="60" />
+          <Property Name="CUSER3" Type="varchar2" MaxLength="60" />
+          <Property Name="NUSER1" Type="number" Precision="15" Scale="6" />
+          <Property Name="NUSER2" Type="number" Precision="15" Scale="6" />
+          <Property Name="GL_ACCT" Type="char" MaxLength="25" />
+          <Property Name="TAXRATE" Type="number" Precision="9" Scale="6" />
+          <Property Name="QA_RATING" Type="char" MaxLength="10" />
+          <Property Name="VEN_RATING" Type="char" MaxLength="10" />
+          <Property Name="GLACCT_ID_EXP" Type="number" Precision="15" Scale="0" />
+          <Property Name="PRIME_CONTACT" Type="char" MaxLength="30" />
+          <Property Name="ECODE" Type="varchar2" MaxLength="10" />
+          <Property Name="EID" Type="number" Precision="15" Scale="0" />
+          <Property Name="EDATE_TIME" Type="date" />
+          <Property Name="ECOPY" Type="char" MaxLength="1" />
+          <Property Name="STATUS_ID" Type="char" MaxLength="20" />
+          <Property Name="CURRENCY_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="TAXABLE" Type="char" MaxLength="1" />
+          <Property Name="FREIGHT_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="FOB" Type="varchar2" MaxLength="60" />
+          <Property Name="STATEMENT_DATE" Type="number" Precision="2" Scale="0" />
+          <Property Name="ARCUSTO_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="INCLUDE_IN_1099" Type="char" MaxLength="1" />
+          <Property Name="USE_USA_MASK" Type="char" MaxLength="1" />
+          <Property Name="PK_HIDE" Type="char" MaxLength="1" />
+          <Property Name="BANK_ACCT_NO" Type="varchar2" MaxLength="25" />
+          <Property Name="WEB_SITE_URL" Type="varchar2" MaxLength="255" />
+          <Property Name="FAX_NUMBER2" Type="varchar2" MaxLength="25" />
+          <Property Name="EMARKET_PLACE" Type="varchar2" MaxLength="25" />
+          <Property Name="SUBJECT_TO_RATING" Type="char" MaxLength="1" />
+          <Property Name="TAX_CODE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="CD_CHECK_REPNAME" Type="varchar2" MaxLength="250" />
+          <Property Name="CD_CHECK_REMITANCE" Type="varchar2" MaxLength="250" />
+          <Property Name="PO_REPORT" Type="varchar2" MaxLength="250" />
+          <Property Name="AP_GLACCT_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="INFO_PO" Type="varchar2" MaxLength="255" />
+          <Property Name="GLTEMPLATE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="EVAL_SHORT_SHIPMENT" Type="varchar2" MaxLength="1" />
+          <Property Name="ALERTMSG" Type="varchar2" MaxLength="255" />
+          <Property Name="SERIAL_ASN_REQUIRED" Type="varchar2" MaxLength="1" />
+          <Property Name="DISTLIST" Type="char" MaxLength="1" />
+          <Property Name="ARCH_AUTO_PO_REL_ACT" Type="varchar2" MaxLength="1" />
+          <Property Name="EPLANT_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="RECEIVING_UD_LOT_NUM" Type="varchar2" MaxLength="1" />
+          <Property Name="CUSER4" Type="varchar2" MaxLength="60" />
+          <Property Name="CUSER5" Type="varchar2" MaxLength="60" />
+          <Property Name="A1099_CODE" Type="varchar2" MaxLength="2" />
+          <Property Name="VENDOR_PREFIX" Type="varchar2" MaxLength="10" />
+          <Property Name="IS_OEM" Type="varchar2" MaxLength="1" />
+          <Property Name="TRANS_CODE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="CURRENCY_LANGUAGE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="INFO_AP" Type="varchar2" MaxLength="255" />
+          <Property Name="NAME_1099" Type="varchar2" MaxLength="60" />
+          <Property Name="DEFAULT_SHIP_TO" Type="number" Precision="15" Scale="0" />
+          <Property Name="USE_VENDOR_PORTAL_INVC" Type="varchar2" MaxLength="1" />
+          <Property Name="CREATED" Type="date" />
+          <Property Name="CREATEDBY" Type="varchar2" MaxLength="30" />
+          <Property Name="CHANGED" Type="date" />
+          <Property Name="CHANGEDBY" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK_DOC_LIBR_REF_23380_EPLANT">
+          <End Role="EPLANT" Type="Self.EPLANT" Multiplicity="0..1" />
+          <End Role="DOC_LIBRARY" Type="Self.DOC_LIBRARY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPLANT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOC_LIBRARY">
+              <PropertyRef Name="EPLANT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC_TEAM_REF_464_DOC_LIBR">
+          <End Role="DOC_LIBRARY" Type="Self.DOC_LIBRARY" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DOC_TEAM" Type="Self.DOC_TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOC_LIBRARY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOC_TEAM">
+              <PropertyRef Name="DOC_LIBRARY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC_TEAM_REF_469_TEAM_MEM">
+          <End Role="TEAM_MEMBER" Type="Self.TEAM_MEMBER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DOC_TEAM" Type="Self.DOC_TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEAM_MEMBER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOC_TEAM">
+              <PropertyRef Name="TEAM_MEMBER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_USER_REF_26325_PR_EMP">
+          <End Role="PR_EMP" Type="Self.PR_EMP" Multiplicity="0..1" />
+          <End Role="EXP_USER" Type="Self.EXP_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PR_EMP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EXP_USER">
+              <PropertyRef Name="PR_EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_USER_REF_26325_VENDOR">
+          <End Role="VENDOR" Type="Self.VENDOR" Multiplicity="0..1" />
+          <End Role="EXP_USER" Type="Self.EXP_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EXP_USER">
+              <PropertyRef Name="VENDOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REMIT_TO_REF_6085_VENDOR">
+          <End Role="VENDOR" Type="Self.VENDOR" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="REMIT_TO" Type="Self.REMIT_TO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="REMIT_TO">
+              <PropertyRef Name="VENDOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_S_USER_G_REF_12578_EPLANT">
+          <End Role="EPLANT" Type="Self.EPLANT" Multiplicity="0..1" />
+          <End Role="S_USER_GENERAL" Type="Self.S_USER_GENERAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPLANT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="S_USER_GENERAL">
+              <PropertyRef Name="EPLANT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TEAM_MEM_REF_99417_EPLANT">
+          <End Role="EPLANT" Type="Self.EPLANT" Multiplicity="0..1" />
+          <End Role="TEAM_MEMBER" Type="Self.TEAM_MEMBER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPLANT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAM_MEMBER">
+              <PropertyRef Name="EPLANT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENDOR_REF_21350_EPLANT">
+          <End Role="EPLANT" Type="Self.EPLANT" Multiplicity="0..1" />
+          <End Role="VENDOR" Type="Self.VENDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPLANT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VENDOR">
+              <PropertyRef Name="EPLANT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IQMS_ModelStoreContainer">
+          <EntitySet Name="DOC_LIBRARY" EntityType="Self.DOC_LIBRARY" Schema="IQMS" store:Type="Tables" />
+          <EntitySet Name="DOC_TEAM" EntityType="Self.DOC_TEAM" Schema="IQMS" store:Type="Tables" />
+          <EntitySet Name="EPLANT" EntityType="Self.EPLANT" Schema="IQMS" store:Type="Tables" />
+          <EntitySet Name="EXP_USER" EntityType="Self.EXP_USER" Schema="IQMS" store:Type="Tables" />
+          <EntitySet Name="PR_EMP" EntityType="Self.PR_EMP" Schema="IQMS" store:Type="Tables" />
+          <EntitySet Name="REMIT_TO" EntityType="Self.REMIT_TO" Schema="IQMS" store:Type="Tables" />
+          <EntitySet Name="S_USER_GENERAL" EntityType="Self.S_USER_GENERAL" Schema="IQMS" store:Type="Tables" />
+          <EntitySet Name="TEAM_MEMBER" EntityType="Self.TEAM_MEMBER" Schema="IQMS" store:Type="Tables" />
+          <EntitySet Name="VENDOR" EntityType="Self.VENDOR" Schema="IQMS" store:Type="Tables" />
+          <AssociationSet Name="FK_DOC_LIBR_REF_23380_EPLANT" Association="Self.FK_DOC_LIBR_REF_23380_EPLANT">
+            <End Role="EPLANT" EntitySet="EPLANT" />
+            <End Role="DOC_LIBRARY" EntitySet="DOC_LIBRARY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC_TEAM_REF_464_DOC_LIBR" Association="Self.FK_DOC_TEAM_REF_464_DOC_LIBR">
+            <End Role="DOC_LIBRARY" EntitySet="DOC_LIBRARY" />
+            <End Role="DOC_TEAM" EntitySet="DOC_TEAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC_TEAM_REF_469_TEAM_MEM" Association="Self.FK_DOC_TEAM_REF_469_TEAM_MEM">
+            <End Role="TEAM_MEMBER" EntitySet="TEAM_MEMBER" />
+            <End Role="DOC_TEAM" EntitySet="DOC_TEAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_USER_REF_26325_PR_EMP" Association="Self.FK_EXP_USER_REF_26325_PR_EMP">
+            <End Role="PR_EMP" EntitySet="PR_EMP" />
+            <End Role="EXP_USER" EntitySet="EXP_USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_USER_REF_26325_VENDOR" Association="Self.FK_EXP_USER_REF_26325_VENDOR">
+            <End Role="VENDOR" EntitySet="VENDOR" />
+            <End Role="EXP_USER" EntitySet="EXP_USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REMIT_TO_REF_6085_VENDOR" Association="Self.FK_REMIT_TO_REF_6085_VENDOR">
+            <End Role="VENDOR" EntitySet="VENDOR" />
+            <End Role="REMIT_TO" EntitySet="REMIT_TO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_S_USER_G_REF_12578_EPLANT" Association="Self.FK_S_USER_G_REF_12578_EPLANT">
+            <End Role="EPLANT" EntitySet="EPLANT" />
+            <End Role="S_USER_GENERAL" EntitySet="S_USER_GENERAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TEAM_MEM_REF_99417_EPLANT" Association="Self.FK_TEAM_MEM_REF_99417_EPLANT">
+            <End Role="EPLANT" EntitySet="EPLANT" />
+            <End Role="TEAM_MEMBER" EntitySet="TEAM_MEMBER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENDOR_REF_21350_EPLANT" Association="Self.FK_VENDOR_REF_21350_EPLANT">
+            <End Role="EPLANT" EntitySet="EPLANT" />
+            <End Role="VENDOR" EntitySet="VENDOR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IQMS_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DOC_LIBRARY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="DESCRIP" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PATH" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DEFAULT_EXT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="REVISION_PATH" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="KEEP_REVISIONS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="SEQ_WORKFLOW" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="REPOSITORY_ALIAS" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="REPOSITORY_DATA" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TEAM_MEMBER_ONLY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CONVERT_TO_PDF" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PDF_PATH" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="EPLANT_ID" Type="Int64" />
+          <Property Name="WF_TYPE_ID" Type="Int64" />
+          <Property Name="WF_KIND" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_CHANGE_DESC_MANDATORY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IS_REPOSITORY_UNRESTRICTED" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CONVERT_TO_PDF_DISPLAY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IS_CONFIDENTIAL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPLANT" Relationship="Self.FK_DOC_LIBR_REF_23380_EPLANT" FromRole="DOC_LIBRARY" ToRole="EPLANT" />
+          <NavigationProperty Name="DOC_TEAM" Relationship="IQMS_Model.FK_DOC_TEAM_REF_464_DOC_LIBR" FromRole="DOC_LIBRARY" ToRole="DOC_TEAM" />
+        </EntityType>
+        <EntityType Name="EPLANT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="ECOMPANY_ID" Type="Int64" />
+          <Property Name="NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADDRESS1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS3" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FAX" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ECODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EID" Type="Int64" />
+          <Property Name="EDATE_TIME" Type="DateTime" />
+          <Property Name="ECOPY" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="GL_PLUG_VALUE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COMPANY" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="SMTP_SERVER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_PS" Type="Int64" />
+          <Property Name="LAST_AR" Type="Int64" />
+          <Property Name="LAST_PO" Type="Int64" />
+          <Property Name="LAST_SO" Type="Int64" />
+          <Property Name="LAST_RMA" Type="Int64" />
+          <Property Name="LAST_RFQ" Type="Int64" />
+          <Property Name="LAST_PO_REC" Type="Int64" />
+          <Property Name="LAST_PHYS" Type="Int64" />
+          <Property Name="TAGINV_STATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TAGINV_STATE_DATE" Type="DateTime" />
+          <Property Name="SUFFIX" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="COSTING_SYSTEM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EIN_ID" Type="Int64" />
+          <Property Name="NATIVE_CURR" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_BOL" Type="Int64" />
+          <Property Name="TAGINV_METHOD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FAX_POLL_PATH" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FAX_POLL_INTERVAL" Type="Int32" />
+          <Property Name="ARCUSTO_ID_INTERCOMP" Type="Int64" />
+          <Property Name="MAINFORM_COLOR" Type="Int64" />
+          <Property Name="SEPARATE_FISCAL_YEAR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="METRIC_UOM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="INACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="USE_EPLANT_PK_TKT_PARAMS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_ORDERS_BASED" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_SO_MODE_PKLIST_BY_DIV" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_PICK_BY_CUSTOMER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_ONE_PER_CUSTOMER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_SHOW_ALL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_KEEP_REL_SEPARATE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_USE_SHIP_DEFAULT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_CONV_USE_SYSDATE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="RF_SERIALIZED_ROUTING" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_SORT_NULL_RAN_TOP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_ENABLE_VOLUME_CALC" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CALC_SHIP_DAY_START_VALID" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_DO_NOT_PRNT_PS_ON_CONV" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_DO_NOT_PRNT_BOL_ON_CONV" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PS_EVAL_OVERSHIP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PS_VERIFY_INVENTORY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_SO_SYNC_AFTER_EDI" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_ASSIGN_ASN_ON_PRINT_LBL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_LABEL_MUST_BE_DISPO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_STAGE_BY_PALLET" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="RFQ_XLS_PATH" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TAGINV_REQUIRE_ALL_COUNTED" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_HARD_ALLOC_ON_PICK" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_AP" Type="Int64" />
+          <Property Name="IIS_SERVER_URL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IIS_PORT" Type="Int16" />
+          <Property Name="PCMON_LOG_INSTANCE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AUTHENTICATE_EMAIL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USER_NAME" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="PK_TKT_PKLIST_BY_SO_DIV" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="APP_ICON" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ENABLE_VEND_NUM_GEN" Type="Boolean" />
+          <Property Name="ENABLE_CUST_NUM_GEN" Type="Boolean" />
+          <Property Name="NOT_VISIBLE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_PROFILE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_BCC" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SMTP_PORT" Type="Int64" />
+          <Property Name="RELIEVE_TO_PARENT_METHOD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_SECURE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TZNAME" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="TZABBREV" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_AF" Type="Int64" />
+          <NavigationProperty Name="DOC_LIBRARY" Relationship="Self.FK_DOC_LIBR_REF_23380_EPLANT" FromRole="EPLANT" ToRole="DOC_LIBRARY" />
+          <NavigationProperty Name="S_USER_GENERAL" Relationship="Self.FK_S_USER_G_REF_12578_EPLANT" FromRole="EPLANT" ToRole="S_USER_GENERAL" />
+          <NavigationProperty Name="TEAM_MEMBER" Relationship="Self.FK_TEAM_MEM_REF_99417_EPLANT" FromRole="EPLANT" ToRole="TEAM_MEMBER" />
+          <NavigationProperty Name="VENDOR" Relationship="Self.FK_VENDOR_REF_21350_EPLANT" FromRole="EPLANT" ToRole="VENDOR" />
+        </EntityType>
+        <EntityType Name="EXP_USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="USER_NAME" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="PR_EMP_ID" Type="Int64" />
+          <Property Name="VENDOR_ID" Type="Int64" />
+          <Property Name="VENDOR_CONTACT_ID" Type="Int64" />
+          <Property Name="EXP_APPROVER" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="MILEAGE_RATE" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="NO_APPROVER_EDIT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="INACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="WORKFLOW" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PR_EMP" Relationship="Self.FK_EXP_USER_REF_26325_PR_EMP" FromRole="EXP_USER" ToRole="PR_EMP" />
+          <NavigationProperty Name="VENDOR" Relationship="Self.FK_EXP_USER_REF_26325_VENDOR" FromRole="EXP_USER" ToRole="VENDOR" />
+        </EntityType>
+        <EntityType Name="PR_EMP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="PR_DEPARTMENT_ID" Type="Int64" />
+          <Property Name="PR_PAYTYPE_ID" Type="Int64" />
+          <Property Name="PR_PAYGROUP_ID" Type="Int64" />
+          <Property Name="EMPNO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MIDDLE_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SSNMBR" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE_NUMBER" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CHARGE_RATE" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="STATUS_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DATE_HIRED" Type="DateTime" />
+          <Property Name="TERMINATION_DATE" Type="DateTime" />
+          <Property Name="LAST_REVIEW_DATE" Type="DateTime" />
+          <Property Name="NEXT_REVIEW_DATE" Type="DateTime" />
+          <Property Name="RACE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SEX" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BASIS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="RATE" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="BIRTH_DATE" Type="DateTime" />
+          <Property Name="CITIZEN" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="MARRIED_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="EIC_MARRIED_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="EIC" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="LABOR_INDICATOR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NICKNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HANDICAP" Type="Int64" />
+          <Property Name="COMMENT1" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="PLUGIN_ENTITY_ID" Type="Int64" />
+          <Property Name="CONTACT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_PHONE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="JOB_TITLE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CUSER1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CUSER2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CUSER3" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CUSER4" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CUSER5" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CUSER6" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NUSER1" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="NUSER2" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="NUSER3" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="NUSER4" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="NUSER5" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="RESET_BENEFITS_DATE" Type="DateTime" />
+          <Property Name="EMP_STATUS_ID" Type="Int64" />
+          <Property Name="ELEMENTS_ID" Type="Int64" />
+          <Property Name="TA_SETTINGS_ID" Type="Int64" />
+          <Property Name="TA_SHIFT_ID" Type="Int64" />
+          <Property Name="TURN_OFF_DD" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="SNDOP_ID" Type="Int64" />
+          <Property Name="RESIDENT_VISA_EXPR" Type="DateTime" />
+          <Property Name="OT1_PR_PAYTYPE_ID" Type="Int64" />
+          <Property Name="OT2_PR_PAYTYPE_ID" Type="Int64" />
+          <Property Name="OT3_PR_PAYTYPE_ID" Type="Int64" />
+          <Property Name="HR_JOB_DESCRIP_ID" Type="Int64" />
+          <Property Name="BADGENO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="PK_HIDE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="WEB_USERID" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_LEVEL_ID" Type="Int64" />
+          <Property Name="SUTA_TAX_STATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SWT_STATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SUPERVISOR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="SUPERVISOR_ID" Type="Int64" />
+          <Property Name="HR_MARRIED_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PR_HOLIDAY_PAYTYPE_ID" Type="Int64" />
+          <Property Name="LAST_CALC_DATE" Type="DateTime" />
+          <Property Name="AUTO_PR_PAYTYPE_ID" Type="Int64" />
+          <Property Name="MOBILE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="PAGER" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="VETERAN_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MFGCELL_ID" Type="Int64" />
+          <Property Name="EMP_PROV_CD" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SUFFIX" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="EW2" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CURRENCY_LANGUAGE_ID" Type="Int64" />
+          <Property Name="CURRENCY_ID" Type="Int64" />
+          <Property Name="DISTLIST" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DISABLED" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="QUAL_DIS_VET" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ARM_FORC_VET" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OTHER_PROT_VET" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NEW_SEP_VET" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SEPARATION_DATE" Type="DateTime" />
+          <NavigationProperty Name="EXP_USER" Relationship="Self.FK_EXP_USER_REF_26325_PR_EMP" FromRole="PR_EMP" ToRole="EXP_USER" />
+        </EntityType>
+        <EntityType Name="S_USER_GENERAL">
+          <Key>
+            <PropertyRef Name="USER_NAME" />
+          </Key>
+          <Property Name="USER_NAME" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AUTO_SHUT_TIME" Type="Int32" />
+          <Property Name="EPLANT_ID" Type="Int64" />
+          <Property Name="PO_LIMIT" Type="Int64" />
+          <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="RMA_LIMIT" Type="Int64" />
+          <Property Name="PR_EMP_ID" Type="Int64" />
+          <Property Name="PO_APPROVER" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="PO_CAP_LIMIT" Type="Int64" />
+          <Property Name="PO_EXP_LIMIT" Type="Int64" />
+          <Property Name="WEB_MASTER" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PO_CANT_INCR_COST" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="AUTO_SHUT_ACTION_CODE" Type="Boolean" />
+          <Property Name="NOTIFICATION_PRINTER" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DONT_CHANGE_POAP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PO_BUYER" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PO_CAN_DENY" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PHONE_NUMBER" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="AUTO_SHUT_SHOPDATA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LANGUAGE_CODE" Type="Byte" />
+          <Property Name="FORCE_PASSWORD_CHANGE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IS_NEW_USER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NEW_USER_TIMESTAMP" Type="DateTime" />
+          <Property Name="SEC_PREVENT_SAME_USER_LOGIN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SEC_ALLOW_NON_DBA_SEC_INS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="INV_ADJ_LIMIT" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="IS_MOBILE_USER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="RECEIPT_TOLERANCE" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="AP_TOLERANCE" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="EMAIL_SIGNATURE" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="SHIP_MANAGER_WARNING" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CUSER1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="SP_PROFILE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="SP_WORKSPACE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="EXCLUDE_CUSTOMERS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EXCLUDE_VENDORS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPLANT" Relationship="Self.FK_S_USER_G_REF_12578_EPLANT" FromRole="S_USER_GENERAL" ToRole="EPLANT" />
+        </EntityType>
+        <EntityType Name="TEAM_MEMBER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="USERID" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TITLE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="WORK_PATH" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="USED_DOC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="USED_CAR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="USED_APQP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="USED_ECO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="USED_PPAP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="EPLANT_ID" Type="Int64" />
+          <Property Name="USED_CAPA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="USED_DEV" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="USED_PROD_PQ" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="USED_PROC_PQ" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="USED_MRB" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="USED_PO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="USED_CRM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="USED_AUDIT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OUT_OF_OFFICE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPLANT" Relationship="Self.FK_TEAM_MEM_REF_99417_EPLANT" FromRole="TEAM_MEMBER" ToRole="EPLANT" />
+          <NavigationProperty Name="DOC_TEAM" Relationship="IQMS_Model.FK_DOC_TEAM_REF_469_TEAM_MEM" FromRole="TEAM_MEMBER" ToRole="DOC_TEAM" />
+        </EntityType>
+        <EntityType Name="VENDOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="VENDORNO" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="COMPANY" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ATTN" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="ADDR1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR3" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="PHONE_NUMBER" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FAX_NUMBER" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="E_MAIL_ADDR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CREDIT_LIMIT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="TERMS_ID" Type="Int64" />
+          <Property Name="YTD_PURCHASES" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="FED_TAX_ID" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="CUSER1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CUSER2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CUSER3" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NUSER1" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="NUSER2" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="GL_ACCT" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
+          <Property Name="TAXRATE" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="QA_RATING" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="VEN_RATING" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="GLACCT_ID_EXP" Type="Int64" />
+          <Property Name="PRIME_CONTACT" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="ECODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EID" Type="Int64" />
+          <Property Name="EDATE_TIME" Type="DateTime" />
+          <Property Name="ECOPY" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="STATUS_ID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="CURRENCY_ID" Type="Int64" />
+          <Property Name="TAXABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FREIGHT_ID" Type="Int64" />
+          <Property Name="FOB" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="STATEMENT_DATE" Type="Byte" />
+          <Property Name="ARCUSTO_ID" Type="Int64" />
+          <Property Name="INCLUDE_IN_1099" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="USE_USA_MASK" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PK_HIDE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BANK_ACCT_NO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="WEB_SITE_URL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FAX_NUMBER2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="EMARKET_PLACE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="SUBJECT_TO_RATING" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TAX_CODE_ID" Type="Int64" />
+          <Property Name="CD_CHECK_REPNAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CD_CHECK_REMITANCE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PO_REPORT" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="AP_GLACCT_ID" Type="Int64" />
+          <Property Name="INFO_PO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GLTEMPLATE_ID" Type="Int64" />
+          <Property Name="EVAL_SHORT_SHIPMENT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ALERTMSG" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SERIAL_ASN_REQUIRED" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DISTLIST" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ARCH_AUTO_PO_REL_ACT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EPLANT_ID" Type="Int64" />
+          <Property Name="RECEIVING_UD_LOT_NUM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CUSER4" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CUSER5" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="A1099_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="VENDOR_PREFIX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IS_OEM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TRANS_CODE_ID" Type="Int64" />
+          <Property Name="CURRENCY_LANGUAGE_ID" Type="Int64" />
+          <Property Name="INFO_AP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NAME_1099" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="DEFAULT_SHIP_TO" Type="Int64" />
+          <Property Name="USE_VENDOR_PORTAL_INVC" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED" Type="DateTime" />
+          <Property Name="CREATEDBY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CHANGED" Type="DateTime" />
+          <Property Name="CHANGEDBY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPLANT" Relationship="Self.FK_VENDOR_REF_21350_EPLANT" FromRole="VENDOR" ToRole="EPLANT" />
+          <NavigationProperty Name="EXP_USER" Relationship="Self.FK_EXP_USER_REF_26325_VENDOR" FromRole="VENDOR" ToRole="EXP_USER" />
+          <NavigationProperty Name="REMIT_TO" Relationship="IQMS_Model.FK_REMIT_TO_REF_6085_VENDOR" FromRole="VENDOR" ToRole="REMIT_TO" />
+        </EntityType>
+        <Association Name="FK_DOC_LIBR_REF_23380_EPLANT">
+          <End Role="EPLANT" Type="Self.EPLANT" Multiplicity="0..1" />
+          <End Role="DOC_LIBRARY" Type="Self.DOC_LIBRARY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPLANT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOC_LIBRARY">
+              <PropertyRef Name="EPLANT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_S_USER_G_REF_12578_EPLANT">
+          <End Role="EPLANT" Type="Self.EPLANT" Multiplicity="0..1" />
+          <End Role="S_USER_GENERAL" Type="Self.S_USER_GENERAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPLANT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="S_USER_GENERAL">
+              <PropertyRef Name="EPLANT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TEAM_MEM_REF_99417_EPLANT">
+          <End Role="EPLANT" Type="Self.EPLANT" Multiplicity="0..1" />
+          <End Role="TEAM_MEMBER" Type="Self.TEAM_MEMBER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPLANT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAM_MEMBER">
+              <PropertyRef Name="EPLANT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENDOR_REF_21350_EPLANT">
+          <End Role="EPLANT" Type="Self.EPLANT" Multiplicity="0..1" />
+          <End Role="VENDOR" Type="Self.VENDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPLANT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VENDOR">
+              <PropertyRef Name="EPLANT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_USER_REF_26325_PR_EMP">
+          <End Role="PR_EMP" Type="Self.PR_EMP" Multiplicity="0..1" />
+          <End Role="EXP_USER" Type="Self.EXP_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PR_EMP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EXP_USER">
+              <PropertyRef Name="PR_EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_USER_REF_26325_VENDOR">
+          <End Role="VENDOR" Type="Self.VENDOR" Multiplicity="0..1" />
+          <End Role="EXP_USER" Type="Self.EXP_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EXP_USER">
+              <PropertyRef Name="VENDOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IQMS_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DOC_LIBRARY" EntityType="Self.DOC_LIBRARY" />
+          <EntitySet Name="EPLANT" EntityType="Self.EPLANT" />
+          <EntitySet Name="EXP_USER" EntityType="Self.EXP_USER" />
+          <EntitySet Name="PR_EMP" EntityType="Self.PR_EMP" />
+          <EntitySet Name="S_USER_GENERAL" EntityType="Self.S_USER_GENERAL" />
+          <EntitySet Name="TEAM_MEMBER" EntityType="Self.TEAM_MEMBER" />
+          <EntitySet Name="VENDOR" EntityType="Self.VENDOR" />
+          <AssociationSet Name="FK_DOC_LIBR_REF_23380_EPLANT" Association="Self.FK_DOC_LIBR_REF_23380_EPLANT">
+            <End Role="EPLANT" EntitySet="EPLANT" />
+            <End Role="DOC_LIBRARY" EntitySet="DOC_LIBRARY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_S_USER_G_REF_12578_EPLANT" Association="Self.FK_S_USER_G_REF_12578_EPLANT">
+            <End Role="EPLANT" EntitySet="EPLANT" />
+            <End Role="S_USER_GENERAL" EntitySet="S_USER_GENERAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TEAM_MEM_REF_99417_EPLANT" Association="Self.FK_TEAM_MEM_REF_99417_EPLANT">
+            <End Role="EPLANT" EntitySet="EPLANT" />
+            <End Role="TEAM_MEMBER" EntitySet="TEAM_MEMBER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENDOR_REF_21350_EPLANT" Association="Self.FK_VENDOR_REF_21350_EPLANT">
+            <End Role="EPLANT" EntitySet="EPLANT" />
+            <End Role="VENDOR" EntitySet="VENDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_USER_REF_26325_PR_EMP" Association="Self.FK_EXP_USER_REF_26325_PR_EMP">
+            <End Role="PR_EMP" EntitySet="PR_EMP" />
+            <End Role="EXP_USER" EntitySet="EXP_USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_USER_REF_26325_VENDOR" Association="Self.FK_EXP_USER_REF_26325_VENDOR">
+            <End Role="VENDOR" EntitySet="VENDOR" />
+            <End Role="EXP_USER" EntitySet="EXP_USER" />
+          </AssociationSet>
+          <EntitySet Name="REMIT_TO" EntityType="IQMS_Model.REMIT_TO" />
+          <AssociationSet Name="FK_REMIT_TO_REF_6085_VENDOR" Association="IQMS_Model.FK_REMIT_TO_REF_6085_VENDOR">
+            <End Role="VENDOR" EntitySet="VENDOR" />
+            <End Role="REMIT_TO" EntitySet="REMIT_TO" />
+          </AssociationSet>
+          <EntitySet Name="DOC_TEAM" EntityType="IQMS_Model.DOC_TEAM" />
+          <AssociationSet Name="FK_DOC_TEAM_REF_464_DOC_LIBR" Association="IQMS_Model.FK_DOC_TEAM_REF_464_DOC_LIBR">
+            <End Role="DOC_LIBRARY" EntitySet="DOC_LIBRARY" />
+            <End Role="DOC_TEAM" EntitySet="DOC_TEAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC_TEAM_REF_469_TEAM_MEM" Association="IQMS_Model.FK_DOC_TEAM_REF_469_TEAM_MEM">
+            <End Role="TEAM_MEMBER" EntitySet="TEAM_MEMBER" />
+            <End Role="DOC_TEAM" EntitySet="DOC_TEAM" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="REMIT_TO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="VENDOR_ID" Type="Int64" />
+          <Property Name="ATTN" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR3" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="CURRENCY_ID" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="PHONE_NUMBER" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FAX_NUMBER" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="PRIME_CONTACT" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="ECODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EID" Type="Int64" />
+          <Property Name="EDATE_TIME" Type="DateTime" />
+          <Property Name="ECOPY" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="USE_USA_MASK" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BANK_ACCT_NO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="DEFAULT_REMIT_TO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CD_CHECK_REPNAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CD_CHECK_REMITANCE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="AP_REMITTANCE_TYPE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="BIC_SWIFT" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="IBAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLEARING_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="INTL_PAY_TYPE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_PHOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="EFT_EMAIL_ADDR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="REMIT_TO_NO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VENDOR" Relationship="IQMS_Model.FK_REMIT_TO_REF_6085_VENDOR" FromRole="REMIT_TO" ToRole="VENDOR" />
+        </EntityType>
+        <Association Name="FK_REMIT_TO_REF_6085_VENDOR">
+          <End Type="IQMS_Model.VENDOR" Role="VENDOR" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="IQMS_Model.REMIT_TO" Role="REMIT_TO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="REMIT_TO">
+              <PropertyRef Name="VENDOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DOC_TEAM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="DOC_LIBRARY_ID" Type="Int64" Nullable="false" />
+          <Property Name="TEAM_MEMBER_ID" Type="Int64" Nullable="false" />
+          <Property Name="SEQ" Type="Byte" />
+          <Property Name="TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DOC_LIBRARY" Relationship="IQMS_Model.FK_DOC_TEAM_REF_464_DOC_LIBR" FromRole="DOC_TEAM" ToRole="DOC_LIBRARY" />
+          <NavigationProperty Name="TEAM_MEMBER" Relationship="IQMS_Model.FK_DOC_TEAM_REF_469_TEAM_MEM" FromRole="DOC_TEAM" ToRole="TEAM_MEMBER" />
+        </EntityType>
+        <Association Name="FK_DOC_TEAM_REF_464_DOC_LIBR">
+          <End Type="IQMS_Model.DOC_LIBRARY" Role="DOC_LIBRARY" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="IQMS_Model.DOC_TEAM" Role="DOC_TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOC_LIBRARY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOC_TEAM">
+              <PropertyRef Name="DOC_LIBRARY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC_TEAM_REF_469_TEAM_MEM">
+          <End Type="IQMS_Model.TEAM_MEMBER" Role="TEAM_MEMBER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="IQMS_Model.DOC_TEAM" Role="DOC_TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEAM_MEMBER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOC_TEAM">
+              <PropertyRef Name="TEAM_MEMBER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IQMS_ModelStoreContainer" CdmEntityContainer="IQMS_Entities">
+          <EntitySetMapping Name="DOC_LIBRARY">
+            <EntityTypeMapping TypeName="IQMS_Model.DOC_LIBRARY">
+              <MappingFragment StoreEntitySet="DOC_LIBRARY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="PATH" ColumnName="PATH" />
+                <ScalarProperty Name="DEFAULT_EXT" ColumnName="DEFAULT_EXT" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="REVISION_PATH" ColumnName="REVISION_PATH" />
+                <ScalarProperty Name="KEEP_REVISIONS" ColumnName="KEEP_REVISIONS" />
+                <ScalarProperty Name="SEQ_WORKFLOW" ColumnName="SEQ_WORKFLOW" />
+                <ScalarProperty Name="REPOSITORY_ALIAS" ColumnName="REPOSITORY_ALIAS" />
+                <ScalarProperty Name="REPOSITORY_DATA" ColumnName="REPOSITORY_DATA" />
+                <ScalarProperty Name="TEAM_MEMBER_ONLY" ColumnName="TEAM_MEMBER_ONLY" />
+                <ScalarProperty Name="CONVERT_TO_PDF" ColumnName="CONVERT_TO_PDF" />
+                <ScalarProperty Name="PDF_PATH" ColumnName="PDF_PATH" />
+                <ScalarProperty Name="EPLANT_ID" ColumnName="EPLANT_ID" />
+                <ScalarProperty Name="WF_TYPE_ID" ColumnName="WF_TYPE_ID" />
+                <ScalarProperty Name="WF_KIND" ColumnName="WF_KIND" />
+                <ScalarProperty Name="DOC_CHANGE_DESC_MANDATORY" ColumnName="DOC_CHANGE_DESC_MANDATORY" />
+                <ScalarProperty Name="IS_REPOSITORY_UNRESTRICTED" ColumnName="IS_REPOSITORY_UNRESTRICTED" />
+                <ScalarProperty Name="CONVERT_TO_PDF_DISPLAY" ColumnName="CONVERT_TO_PDF_DISPLAY" />
+                <ScalarProperty Name="IS_CONFIDENTIAL" ColumnName="IS_CONFIDENTIAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPLANT">
+            <EntityTypeMapping TypeName="IQMS_Model.EPLANT">
+              <MappingFragment StoreEntitySet="EPLANT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ECOMPANY_ID" ColumnName="ECOMPANY_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="ADDRESS3" ColumnName="ADDRESS3" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ECODE" ColumnName="ECODE" />
+                <ScalarProperty Name="EID" ColumnName="EID" />
+                <ScalarProperty Name="EDATE_TIME" ColumnName="EDATE_TIME" />
+                <ScalarProperty Name="ECOPY" ColumnName="ECOPY" />
+                <ScalarProperty Name="GL_PLUG_VALUE" ColumnName="GL_PLUG_VALUE" />
+                <ScalarProperty Name="COMPANY" ColumnName="COMPANY" />
+                <ScalarProperty Name="SMTP_SERVER" ColumnName="SMTP_SERVER" />
+                <ScalarProperty Name="LAST_PS" ColumnName="LAST_PS" />
+                <ScalarProperty Name="LAST_AR" ColumnName="LAST_AR" />
+                <ScalarProperty Name="LAST_PO" ColumnName="LAST_PO" />
+                <ScalarProperty Name="LAST_SO" ColumnName="LAST_SO" />
+                <ScalarProperty Name="LAST_RMA" ColumnName="LAST_RMA" />
+                <ScalarProperty Name="LAST_RFQ" ColumnName="LAST_RFQ" />
+                <ScalarProperty Name="LAST_PO_REC" ColumnName="LAST_PO_REC" />
+                <ScalarProperty Name="LAST_PHYS" ColumnName="LAST_PHYS" />
+                <ScalarProperty Name="TAGINV_STATE" ColumnName="TAGINV_STATE" />
+                <ScalarProperty Name="TAGINV_STATE_DATE" ColumnName="TAGINV_STATE_DATE" />
+                <ScalarProperty Name="SUFFIX" ColumnName="SUFFIX" />
+                <ScalarProperty Name="COSTING_SYSTEM" ColumnName="COSTING_SYSTEM" />
+                <ScalarProperty Name="EIN_ID" ColumnName="EIN_ID" />
+                <ScalarProperty Name="NATIVE_CURR" ColumnName="NATIVE_CURR" />
+                <ScalarProperty Name="LAST_BOL" ColumnName="LAST_BOL" />
+                <ScalarProperty Name="TAGINV_METHOD" ColumnName="TAGINV_METHOD" />
+                <ScalarProperty Name="FAX_POLL_PATH" ColumnName="FAX_POLL_PATH" />
+                <ScalarProperty Name="FAX_POLL_INTERVAL" ColumnName="FAX_POLL_INTERVAL" />
+                <ScalarProperty Name="ARCUSTO_ID_INTERCOMP" ColumnName="ARCUSTO_ID_INTERCOMP" />
+                <ScalarProperty Name="MAINFORM_COLOR" ColumnName="MAINFORM_COLOR" />
+                <ScalarProperty Name="SEPARATE_FISCAL_YEAR" ColumnName="SEPARATE_FISCAL_YEAR" />
+                <ScalarProperty Name="METRIC_UOM" ColumnName="METRIC_UOM" />
+                <ScalarProperty Name="INACTIVE" ColumnName="INACTIVE" />
+                <ScalarProperty Name="USE_EPLANT_PK_TKT_PARAMS" ColumnName="USE_EPLANT_PK_TKT_PARAMS" />
+                <ScalarProperty Name="PK_TKT_ORDERS_BASED" ColumnName="PK_TKT_ORDERS_BASED" />
+                <ScalarProperty Name="PK_TKT_SO_MODE_PKLIST_BY_DIV" ColumnName="PK_TKT_SO_MODE_PKLIST_BY_DIV" />
+                <ScalarProperty Name="PK_TKT_PICK_BY_CUSTOMER" ColumnName="PK_TKT_PICK_BY_CUSTOMER" />
+                <ScalarProperty Name="PK_TKT_ONE_PER_CUSTOMER" ColumnName="PK_TKT_ONE_PER_CUSTOMER" />
+                <ScalarProperty Name="PK_TKT_SHOW_ALL" ColumnName="PK_TKT_SHOW_ALL" />
+                <ScalarProperty Name="PK_TKT_KEEP_REL_SEPARATE" ColumnName="PK_TKT_KEEP_REL_SEPARATE" />
+                <ScalarProperty Name="PK_TKT_USE_SHIP_DEFAULT" ColumnName="PK_TKT_USE_SHIP_DEFAULT" />
+                <ScalarProperty Name="PK_TKT_CONV_USE_SYSDATE" ColumnName="PK_TKT_CONV_USE_SYSDATE" />
+                <ScalarProperty Name="RF_SERIALIZED_ROUTING" ColumnName="RF_SERIALIZED_ROUTING" />
+                <ScalarProperty Name="PK_TKT_SORT_NULL_RAN_TOP" ColumnName="PK_TKT_SORT_NULL_RAN_TOP" />
+                <ScalarProperty Name="PK_TKT_ENABLE_VOLUME_CALC" ColumnName="PK_TKT_ENABLE_VOLUME_CALC" />
+                <ScalarProperty Name="CALC_SHIP_DAY_START_VALID" ColumnName="CALC_SHIP_DAY_START_VALID" />
+                <ScalarProperty Name="PK_TKT_DO_NOT_PRNT_PS_ON_CONV" ColumnName="PK_TKT_DO_NOT_PRNT_PS_ON_CONV" />
+                <ScalarProperty Name="PK_TKT_DO_NOT_PRNT_BOL_ON_CONV" ColumnName="PK_TKT_DO_NOT_PRNT_BOL_ON_CONV" />
+                <ScalarProperty Name="PS_EVAL_OVERSHIP" ColumnName="PS_EVAL_OVERSHIP" />
+                <ScalarProperty Name="PS_VERIFY_INVENTORY" ColumnName="PS_VERIFY_INVENTORY" />
+                <ScalarProperty Name="PK_TKT_SO_SYNC_AFTER_EDI" ColumnName="PK_TKT_SO_SYNC_AFTER_EDI" />
+                <ScalarProperty Name="PK_TKT_ASSIGN_ASN_ON_PRINT_LBL" ColumnName="PK_TKT_ASSIGN_ASN_ON_PRINT_LBL" />
+                <ScalarProperty Name="PK_TKT_LABEL_MUST_BE_DISPO" ColumnName="PK_TKT_LABEL_MUST_BE_DISPO" />
+                <ScalarProperty Name="COUNTRY_CODE" ColumnName="COUNTRY_CODE" />
+                <ScalarProperty Name="PK_TKT_STAGE_BY_PALLET" ColumnName="PK_TKT_STAGE_BY_PALLET" />
+                <ScalarProperty Name="RFQ_XLS_PATH" ColumnName="RFQ_XLS_PATH" />
+                <ScalarProperty Name="TAGINV_REQUIRE_ALL_COUNTED" ColumnName="TAGINV_REQUIRE_ALL_COUNTED" />
+                <ScalarProperty Name="PK_TKT_HARD_ALLOC_ON_PICK" ColumnName="PK_TKT_HARD_ALLOC_ON_PICK" />
+                <ScalarProperty Name="LAST_AP" ColumnName="LAST_AP" />
+                <ScalarProperty Name="IIS_SERVER_URL" ColumnName="IIS_SERVER_URL" />
+                <ScalarProperty Name="IIS_PORT" ColumnName="IIS_PORT" />
+                <ScalarProperty Name="PCMON_LOG_INSTANCE" ColumnName="PCMON_LOG_INSTANCE" />
+                <ScalarProperty Name="AUTHENTICATE_EMAIL" ColumnName="AUTHENTICATE_EMAIL" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="PK_TKT_PKLIST_BY_SO_DIV" ColumnName="PK_TKT_PKLIST_BY_SO_DIV" />
+                <ScalarProperty Name="APP_ICON" ColumnName="APP_ICON" />
+                <ScalarProperty Name="ENABLE_VEND_NUM_GEN" ColumnName="ENABLE_VEND_NUM_GEN" />
+                <ScalarProperty Name="ENABLE_CUST_NUM_GEN" ColumnName="ENABLE_CUST_NUM_GEN" />
+                <ScalarProperty Name="NOT_VISIBLE" ColumnName="NOT_VISIBLE" />
+                <ScalarProperty Name="EMAIL_PROFILE_NAME" ColumnName="EMAIL_PROFILE_NAME" />
+                <ScalarProperty Name="EMAIL_BCC" ColumnName="EMAIL_BCC" />
+                <ScalarProperty Name="SMTP_PORT" ColumnName="SMTP_PORT" />
+                <ScalarProperty Name="RELIEVE_TO_PARENT_METHOD" ColumnName="RELIEVE_TO_PARENT_METHOD" />
+                <ScalarProperty Name="EMAIL_SECURE" ColumnName="EMAIL_SECURE" />
+                <ScalarProperty Name="TZNAME" ColumnName="TZNAME" />
+                <ScalarProperty Name="TZABBREV" ColumnName="TZABBREV" />
+                <ScalarProperty Name="LAST_AF" ColumnName="LAST_AF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EXP_USER">
+            <EntityTypeMapping TypeName="IQMS_Model.EXP_USER">
+              <MappingFragment StoreEntitySet="EXP_USER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="PR_EMP_ID" ColumnName="PR_EMP_ID" />
+                <ScalarProperty Name="VENDOR_ID" ColumnName="VENDOR_ID" />
+                <ScalarProperty Name="VENDOR_CONTACT_ID" ColumnName="VENDOR_CONTACT_ID" />
+                <ScalarProperty Name="EXP_APPROVER" ColumnName="EXP_APPROVER" />
+                <ScalarProperty Name="MILEAGE_RATE" ColumnName="MILEAGE_RATE" />
+                <ScalarProperty Name="NO_APPROVER_EDIT" ColumnName="NO_APPROVER_EDIT" />
+                <ScalarProperty Name="INACTIVE" ColumnName="INACTIVE" />
+                <ScalarProperty Name="WORKFLOW" ColumnName="WORKFLOW" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PR_EMP">
+            <EntityTypeMapping TypeName="IQMS_Model.PR_EMP">
+              <MappingFragment StoreEntitySet="PR_EMP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PR_DEPARTMENT_ID" ColumnName="PR_DEPARTMENT_ID" />
+                <ScalarProperty Name="PR_PAYTYPE_ID" ColumnName="PR_PAYTYPE_ID" />
+                <ScalarProperty Name="PR_PAYGROUP_ID" ColumnName="PR_PAYGROUP_ID" />
+                <ScalarProperty Name="EMPNO" ColumnName="EMPNO" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="MIDDLE_NAME" ColumnName="MIDDLE_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="SSNMBR" ColumnName="SSNMBR" />
+                <ScalarProperty Name="ADDR1" ColumnName="ADDR1" />
+                <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="CHARGE_RATE" ColumnName="CHARGE_RATE" />
+                <ScalarProperty Name="STATUS_CODE" ColumnName="STATUS_CODE" />
+                <ScalarProperty Name="DATE_HIRED" ColumnName="DATE_HIRED" />
+                <ScalarProperty Name="TERMINATION_DATE" ColumnName="TERMINATION_DATE" />
+                <ScalarProperty Name="LAST_REVIEW_DATE" ColumnName="LAST_REVIEW_DATE" />
+                <ScalarProperty Name="NEXT_REVIEW_DATE" ColumnName="NEXT_REVIEW_DATE" />
+                <ScalarProperty Name="RACE" ColumnName="RACE" />
+                <ScalarProperty Name="SEX" ColumnName="SEX" />
+                <ScalarProperty Name="BASIS" ColumnName="BASIS" />
+                <ScalarProperty Name="RATE" ColumnName="RATE" />
+                <ScalarProperty Name="BIRTH_DATE" ColumnName="BIRTH_DATE" />
+                <ScalarProperty Name="CITIZEN" ColumnName="CITIZEN" />
+                <ScalarProperty Name="MARRIED_STATUS" ColumnName="MARRIED_STATUS" />
+                <ScalarProperty Name="EIC_MARRIED_STATUS" ColumnName="EIC_MARRIED_STATUS" />
+                <ScalarProperty Name="EIC" ColumnName="EIC" />
+                <ScalarProperty Name="LABOR_INDICATOR" ColumnName="LABOR_INDICATOR" />
+                <ScalarProperty Name="NICKNAME" ColumnName="NICKNAME" />
+                <ScalarProperty Name="HANDICAP" ColumnName="HANDICAP" />
+                <ScalarProperty Name="COMMENT1" ColumnName="COMMENT1" />
+                <ScalarProperty Name="PLUGIN_ENTITY_ID" ColumnName="PLUGIN_ENTITY_ID" />
+                <ScalarProperty Name="CONTACT" ColumnName="CONTACT" />
+                <ScalarProperty Name="CONTACT_PHONE" ColumnName="CONTACT_PHONE" />
+                <ScalarProperty Name="JOB_TITLE" ColumnName="JOB_TITLE" />
+                <ScalarProperty Name="CUSER1" ColumnName="CUSER1" />
+                <ScalarProperty Name="CUSER2" ColumnName="CUSER2" />
+                <ScalarProperty Name="CUSER3" ColumnName="CUSER3" />
+                <ScalarProperty Name="CUSER4" ColumnName="CUSER4" />
+                <ScalarProperty Name="CUSER5" ColumnName="CUSER5" />
+                <ScalarProperty Name="CUSER6" ColumnName="CUSER6" />
+                <ScalarProperty Name="NUSER1" ColumnName="NUSER1" />
+                <ScalarProperty Name="NUSER2" ColumnName="NUSER2" />
+                <ScalarProperty Name="NUSER3" ColumnName="NUSER3" />
+                <ScalarProperty Name="NUSER4" ColumnName="NUSER4" />
+                <ScalarProperty Name="NUSER5" ColumnName="NUSER5" />
+                <ScalarProperty Name="RESET_BENEFITS_DATE" ColumnName="RESET_BENEFITS_DATE" />
+                <ScalarProperty Name="EMP_STATUS_ID" ColumnName="EMP_STATUS_ID" />
+                <ScalarProperty Name="ELEMENTS_ID" ColumnName="ELEMENTS_ID" />
+                <ScalarProperty Name="TA_SETTINGS_ID" ColumnName="TA_SETTINGS_ID" />
+                <ScalarProperty Name="TA_SHIFT_ID" ColumnName="TA_SHIFT_ID" />
+                <ScalarProperty Name="TURN_OFF_DD" ColumnName="TURN_OFF_DD" />
+                <ScalarProperty Name="SNDOP_ID" ColumnName="SNDOP_ID" />
+                <ScalarProperty Name="RESIDENT_VISA_EXPR" ColumnName="RESIDENT_VISA_EXPR" />
+                <ScalarProperty Name="OT1_PR_PAYTYPE_ID" ColumnName="OT1_PR_PAYTYPE_ID" />
+                <ScalarProperty Name="OT2_PR_PAYTYPE_ID" ColumnName="OT2_PR_PAYTYPE_ID" />
+                <ScalarProperty Name="OT3_PR_PAYTYPE_ID" ColumnName="OT3_PR_PAYTYPE_ID" />
+                <ScalarProperty Name="HR_JOB_DESCRIP_ID" ColumnName="HR_JOB_DESCRIP_ID" />
+                <ScalarProperty Name="BADGENO" ColumnName="BADGENO" />
+                <ScalarProperty Name="PK_HIDE" ColumnName="PK_HIDE" />
+                <ScalarProperty Name="WEB_USERID" ColumnName="WEB_USERID" />
+                <ScalarProperty Name="EMP_LEVEL_ID" ColumnName="EMP_LEVEL_ID" />
+                <ScalarProperty Name="SUTA_TAX_STATE" ColumnName="SUTA_TAX_STATE" />
+                <ScalarProperty Name="SWT_STATE" ColumnName="SWT_STATE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="SUPERVISOR" ColumnName="SUPERVISOR" />
+                <ScalarProperty Name="SUPERVISOR_ID" ColumnName="SUPERVISOR_ID" />
+                <ScalarProperty Name="HR_MARRIED_STATUS" ColumnName="HR_MARRIED_STATUS" />
+                <ScalarProperty Name="PR_HOLIDAY_PAYTYPE_ID" ColumnName="PR_HOLIDAY_PAYTYPE_ID" />
+                <ScalarProperty Name="LAST_CALC_DATE" ColumnName="LAST_CALC_DATE" />
+                <ScalarProperty Name="AUTO_PR_PAYTYPE_ID" ColumnName="AUTO_PR_PAYTYPE_ID" />
+                <ScalarProperty Name="MOBILE" ColumnName="MOBILE" />
+                <ScalarProperty Name="PAGER" ColumnName="PAGER" />
+                <ScalarProperty Name="VETERAN_STATUS" ColumnName="VETERAN_STATUS" />
+                <ScalarProperty Name="MFGCELL_ID" ColumnName="MFGCELL_ID" />
+                <ScalarProperty Name="EMP_PROV_CD" ColumnName="EMP_PROV_CD" />
+                <ScalarProperty Name="SUFFIX" ColumnName="SUFFIX" />
+                <ScalarProperty Name="EW2" ColumnName="EW2" />
+                <ScalarProperty Name="CURRENCY_LANGUAGE_ID" ColumnName="CURRENCY_LANGUAGE_ID" />
+                <ScalarProperty Name="CURRENCY_ID" ColumnName="CURRENCY_ID" />
+                <ScalarProperty Name="DISTLIST" ColumnName="DISTLIST" />
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
+                <ScalarProperty Name="QUAL_DIS_VET" ColumnName="QUAL_DIS_VET" />
+                <ScalarProperty Name="ARM_FORC_VET" ColumnName="ARM_FORC_VET" />
+                <ScalarProperty Name="OTHER_PROT_VET" ColumnName="OTHER_PROT_VET" />
+                <ScalarProperty Name="NEW_SEP_VET" ColumnName="NEW_SEP_VET" />
+                <ScalarProperty Name="SEPARATION_DATE" ColumnName="SEPARATION_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="S_USER_GENERAL">
+            <EntityTypeMapping TypeName="IQMS_Model.S_USER_GENERAL">
+              <MappingFragment StoreEntitySet="S_USER_GENERAL">
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="AUTO_SHUT_TIME" ColumnName="AUTO_SHUT_TIME" />
+                <ScalarProperty Name="EPLANT_ID" ColumnName="EPLANT_ID" />
+                <ScalarProperty Name="PO_LIMIT" ColumnName="PO_LIMIT" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="RMA_LIMIT" ColumnName="RMA_LIMIT" />
+                <ScalarProperty Name="PR_EMP_ID" ColumnName="PR_EMP_ID" />
+                <ScalarProperty Name="PO_APPROVER" ColumnName="PO_APPROVER" />
+                <ScalarProperty Name="PO_CAP_LIMIT" ColumnName="PO_CAP_LIMIT" />
+                <ScalarProperty Name="PO_EXP_LIMIT" ColumnName="PO_EXP_LIMIT" />
+                <ScalarProperty Name="WEB_MASTER" ColumnName="WEB_MASTER" />
+                <ScalarProperty Name="PO_CANT_INCR_COST" ColumnName="PO_CANT_INCR_COST" />
+                <ScalarProperty Name="AUTO_SHUT_ACTION_CODE" ColumnName="AUTO_SHUT_ACTION_CODE" />
+                <ScalarProperty Name="NOTIFICATION_PRINTER" ColumnName="NOTIFICATION_PRINTER" />
+                <ScalarProperty Name="DONT_CHANGE_POAP" ColumnName="DONT_CHANGE_POAP" />
+                <ScalarProperty Name="PO_BUYER" ColumnName="PO_BUYER" />
+                <ScalarProperty Name="PO_CAN_DENY" ColumnName="PO_CAN_DENY" />
+                <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
+                <ScalarProperty Name="AUTO_SHUT_SHOPDATA" ColumnName="AUTO_SHUT_SHOPDATA" />
+                <ScalarProperty Name="LANGUAGE_CODE" ColumnName="LANGUAGE_CODE" />
+                <ScalarProperty Name="FORCE_PASSWORD_CHANGE" ColumnName="FORCE_PASSWORD_CHANGE" />
+                <ScalarProperty Name="IS_NEW_USER" ColumnName="IS_NEW_USER" />
+                <ScalarProperty Name="NEW_USER_TIMESTAMP" ColumnName="NEW_USER_TIMESTAMP" />
+                <ScalarProperty Name="SEC_PREVENT_SAME_USER_LOGIN" ColumnName="SEC_PREVENT_SAME_USER_LOGIN" />
+                <ScalarProperty Name="SEC_ALLOW_NON_DBA_SEC_INS" ColumnName="SEC_ALLOW_NON_DBA_SEC_INS" />
+                <ScalarProperty Name="INV_ADJ_LIMIT" ColumnName="INV_ADJ_LIMIT" />
+                <ScalarProperty Name="IS_MOBILE_USER" ColumnName="IS_MOBILE_USER" />
+                <ScalarProperty Name="RECEIPT_TOLERANCE" ColumnName="RECEIPT_TOLERANCE" />
+                <ScalarProperty Name="AP_TOLERANCE" ColumnName="AP_TOLERANCE" />
+                <ScalarProperty Name="EMAIL_SIGNATURE" ColumnName="EMAIL_SIGNATURE" />
+                <ScalarProperty Name="SHIP_MANAGER_WARNING" ColumnName="SHIP_MANAGER_WARNING" />
+                <ScalarProperty Name="CUSER1" ColumnName="CUSER1" />
+                <ScalarProperty Name="SP_PROFILE" ColumnName="SP_PROFILE" />
+                <ScalarProperty Name="SP_WORKSPACE" ColumnName="SP_WORKSPACE" />
+                <ScalarProperty Name="EXCLUDE_CUSTOMERS" ColumnName="EXCLUDE_CUSTOMERS" />
+                <ScalarProperty Name="EXCLUDE_VENDORS" ColumnName="EXCLUDE_VENDORS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEAM_MEMBER">
+            <EntityTypeMapping TypeName="IQMS_Model.TEAM_MEMBER">
+              <MappingFragment StoreEntitySet="TEAM_MEMBER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="WORK_PATH" ColumnName="WORK_PATH" />
+                <ScalarProperty Name="USED_DOC" ColumnName="USED_DOC" />
+                <ScalarProperty Name="USED_CAR" ColumnName="USED_CAR" />
+                <ScalarProperty Name="USED_APQP" ColumnName="USED_APQP" />
+                <ScalarProperty Name="USED_ECO" ColumnName="USED_ECO" />
+                <ScalarProperty Name="USED_PPAP" ColumnName="USED_PPAP" />
+                <ScalarProperty Name="EPLANT_ID" ColumnName="EPLANT_ID" />
+                <ScalarProperty Name="USED_CAPA" ColumnName="USED_CAPA" />
+                <ScalarProperty Name="USED_DEV" ColumnName="USED_DEV" />
+                <ScalarProperty Name="USED_PROD_PQ" ColumnName="USED_PROD_PQ" />
+                <ScalarProperty Name="USED_PROC_PQ" ColumnName="USED_PROC_PQ" />
+                <ScalarProperty Name="USED_MRB" ColumnName="USED_MRB" />
+                <ScalarProperty Name="USED_PO" ColumnName="USED_PO" />
+                <ScalarProperty Name="USED_CRM" ColumnName="USED_CRM" />
+                <ScalarProperty Name="USED_AUDIT" ColumnName="USED_AUDIT" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="OUT_OF_OFFICE" ColumnName="OUT_OF_OFFICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENDOR">
+            <EntityTypeMapping TypeName="IQMS_Model.VENDOR">
+              <MappingFragment StoreEntitySet="VENDOR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="VENDORNO" ColumnName="VENDORNO" />
+                <ScalarProperty Name="COMPANY" ColumnName="COMPANY" />
+                <ScalarProperty Name="ATTN" ColumnName="ATTN" />
+                <ScalarProperty Name="ADDR1" ColumnName="ADDR1" />
+                <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+                <ScalarProperty Name="ADDR3" ColumnName="ADDR3" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
+                <ScalarProperty Name="FAX_NUMBER" ColumnName="FAX_NUMBER" />
+                <ScalarProperty Name="E_MAIL_ADDR" ColumnName="E_MAIL_ADDR" />
+                <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+                <ScalarProperty Name="TERMS_ID" ColumnName="TERMS_ID" />
+                <ScalarProperty Name="YTD_PURCHASES" ColumnName="YTD_PURCHASES" />
+                <ScalarProperty Name="FED_TAX_ID" ColumnName="FED_TAX_ID" />
+                <ScalarProperty Name="CUSER1" ColumnName="CUSER1" />
+                <ScalarProperty Name="CUSER2" ColumnName="CUSER2" />
+                <ScalarProperty Name="CUSER3" ColumnName="CUSER3" />
+                <ScalarProperty Name="NUSER1" ColumnName="NUSER1" />
+                <ScalarProperty Name="NUSER2" ColumnName="NUSER2" />
+                <ScalarProperty Name="GL_ACCT" ColumnName="GL_ACCT" />
+                <ScalarProperty Name="TAXRATE" ColumnName="TAXRATE" />
+                <ScalarProperty Name="QA_RATING" ColumnName="QA_RATING" />
+                <ScalarProperty Name="VEN_RATING" ColumnName="VEN_RATING" />
+                <ScalarProperty Name="GLACCT_ID_EXP" ColumnName="GLACCT_ID_EXP" />
+                <ScalarProperty Name="PRIME_CONTACT" ColumnName="PRIME_CONTACT" />
+                <ScalarProperty Name="ECODE" ColumnName="ECODE" />
+                <ScalarProperty Name="EID" ColumnName="EID" />
+                <ScalarProperty Name="EDATE_TIME" ColumnName="EDATE_TIME" />
+                <ScalarProperty Name="ECOPY" ColumnName="ECOPY" />
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+                <ScalarProperty Name="CURRENCY_ID" ColumnName="CURRENCY_ID" />
+                <ScalarProperty Name="TAXABLE" ColumnName="TAXABLE" />
+                <ScalarProperty Name="FREIGHT_ID" ColumnName="FREIGHT_ID" />
+                <ScalarProperty Name="FOB" ColumnName="FOB" />
+                <ScalarProperty Name="STATEMENT_DATE" ColumnName="STATEMENT_DATE" />
+                <ScalarProperty Name="ARCUSTO_ID" ColumnName="ARCUSTO_ID" />
+                <ScalarProperty Name="INCLUDE_IN_1099" ColumnName="INCLUDE_IN_1099" />
+                <ScalarProperty Name="USE_USA_MASK" ColumnName="USE_USA_MASK" />
+                <ScalarProperty Name="PK_HIDE" ColumnName="PK_HIDE" />
+                <ScalarProperty Name="BANK_ACCT_NO" ColumnName="BANK_ACCT_NO" />
+                <ScalarProperty Name="WEB_SITE_URL" ColumnName="WEB_SITE_URL" />
+                <ScalarProperty Name="FAX_NUMBER2" ColumnName="FAX_NUMBER2" />
+                <ScalarProperty Name="EMARKET_PLACE" ColumnName="EMARKET_PLACE" />
+                <ScalarProperty Name="SUBJECT_TO_RATING" ColumnName="SUBJECT_TO_RATING" />
+                <ScalarProperty Name="TAX_CODE_ID" ColumnName="TAX_CODE_ID" />
+                <ScalarProperty Name="CD_CHECK_REPNAME" ColumnName="CD_CHECK_REPNAME" />
+                <ScalarProperty Name="CD_CHECK_REMITANCE" ColumnName="CD_CHECK_REMITANCE" />
+                <ScalarProperty Name="PO_REPORT" ColumnName="PO_REPORT" />
+                <ScalarProperty Name="AP_GLACCT_ID" ColumnName="AP_GLACCT_ID" />
+                <ScalarProperty Name="INFO_PO" ColumnName="INFO_PO" />
+                <ScalarProperty Name="GLTEMPLATE_ID" ColumnName="GLTEMPLATE_ID" />
+                <ScalarProperty Name="EVAL_SHORT_SHIPMENT" ColumnName="EVAL_SHORT_SHIPMENT" />
+                <ScalarProperty Name="ALERTMSG" ColumnName="ALERTMSG" />
+                <ScalarProperty Name="SERIAL_ASN_REQUIRED" ColumnName="SERIAL_ASN_REQUIRED" />
+                <ScalarProperty Name="DISTLIST" ColumnName="DISTLIST" />
+                <ScalarProperty Name="ARCH_AUTO_PO_REL_ACT" ColumnName="ARCH_AUTO_PO_REL_ACT" />
+                <ScalarProperty Name="EPLANT_ID" ColumnName="EPLANT_ID" />
+                <ScalarProperty Name="RECEIVING_UD_LOT_NUM" ColumnName="RECEIVING_UD_LOT_NUM" />
+                <ScalarProperty Name="CUSER4" ColumnName="CUSER4" />
+                <ScalarProperty Name="CUSER5" ColumnName="CUSER5" />
+                <ScalarProperty Name="A1099_CODE" ColumnName="A1099_CODE" />
+                <ScalarProperty Name="VENDOR_PREFIX" ColumnName="VENDOR_PREFIX" />
+                <ScalarProperty Name="IS_OEM" ColumnName="IS_OEM" />
+                <ScalarProperty Name="TRANS_CODE_ID" ColumnName="TRANS_CODE_ID" />
+                <ScalarProperty Name="CURRENCY_LANGUAGE_ID" ColumnName="CURRENCY_LANGUAGE_ID" />
+                <ScalarProperty Name="INFO_AP" ColumnName="INFO_AP" />
+                <ScalarProperty Name="NAME_1099" ColumnName="NAME_1099" />
+                <ScalarProperty Name="DEFAULT_SHIP_TO" ColumnName="DEFAULT_SHIP_TO" />
+                <ScalarProperty Name="USE_VENDOR_PORTAL_INVC" ColumnName="USE_VENDOR_PORTAL_INVC" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="CREATEDBY" ColumnName="CREATEDBY" />
+                <ScalarProperty Name="CHANGED" ColumnName="CHANGED" />
+                <ScalarProperty Name="CHANGEDBY" ColumnName="CHANGEDBY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REMIT_TO">
+            <EntityTypeMapping TypeName="IQMS_Model.REMIT_TO">
+              <MappingFragment StoreEntitySet="REMIT_TO">
+                <ScalarProperty Name="REMIT_TO_NO" ColumnName="REMIT_TO_NO" />
+                <ScalarProperty Name="EFT_EMAIL_ADDR" ColumnName="EFT_EMAIL_ADDR" />
+                <ScalarProperty Name="CONTACT_PHOTO" ColumnName="CONTACT_PHOTO" />
+                <ScalarProperty Name="INTL_PAY_TYPE" ColumnName="INTL_PAY_TYPE" />
+                <ScalarProperty Name="CLEARING_NO" ColumnName="CLEARING_NO" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="BIC_SWIFT" ColumnName="BIC_SWIFT" />
+                <ScalarProperty Name="AP_REMITTANCE_TYPE" ColumnName="AP_REMITTANCE_TYPE" />
+                <ScalarProperty Name="CD_CHECK_REMITANCE" ColumnName="CD_CHECK_REMITANCE" />
+                <ScalarProperty Name="CD_CHECK_REPNAME" ColumnName="CD_CHECK_REPNAME" />
+                <ScalarProperty Name="DEFAULT_REMIT_TO" ColumnName="DEFAULT_REMIT_TO" />
+                <ScalarProperty Name="BANK_ACCT_NO" ColumnName="BANK_ACCT_NO" />
+                <ScalarProperty Name="USE_USA_MASK" ColumnName="USE_USA_MASK" />
+                <ScalarProperty Name="ECOPY" ColumnName="ECOPY" />
+                <ScalarProperty Name="EDATE_TIME" ColumnName="EDATE_TIME" />
+                <ScalarProperty Name="EID" ColumnName="EID" />
+                <ScalarProperty Name="ECODE" ColumnName="ECODE" />
+                <ScalarProperty Name="PRIME_CONTACT" ColumnName="PRIME_CONTACT" />
+                <ScalarProperty Name="FAX_NUMBER" ColumnName="FAX_NUMBER" />
+                <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
+                <ScalarProperty Name="CURRENCY_ID" ColumnName="CURRENCY_ID" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="ADDR3" ColumnName="ADDR3" />
+                <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+                <ScalarProperty Name="ADDR1" ColumnName="ADDR1" />
+                <ScalarProperty Name="ATTN" ColumnName="ATTN" />
+                <ScalarProperty Name="VENDOR_ID" ColumnName="VENDOR_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOC_TEAM">
+            <EntityTypeMapping TypeName="IQMS_Model.DOC_TEAM">
+              <MappingFragment StoreEntitySet="DOC_TEAM">
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="SEQ" ColumnName="SEQ" />
+                <ScalarProperty Name="TEAM_MEMBER_ID" ColumnName="TEAM_MEMBER_ID" />
+                <ScalarProperty Name="DOC_LIBRARY_ID" ColumnName="DOC_LIBRARY_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<iq_add_user.Models.PR_EMP>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employees List</h2>
+
+<table class="table table-condensed table-hover">
+    <tr>
+        <th>Id</th>
+
+        <th>
+            Emp No.
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Badge No.
+        </th>
+        <th>
+            Inactive
+        </th>
+        <th>
+            Email
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPNO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FIRST_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LAST_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BADGENO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PK_HIDE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

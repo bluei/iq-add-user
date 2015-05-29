@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6379ecfc2f854172b4ab6f6521bd3106" Name="Diagram1" ZoomLevel="33">
+        <EntityTypeShape EntityType="IQMS_Model.DOC_LIBRARY" Width="1.5" PointX="5.5" PointY="1.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="IQMS_Model.EPLANT" Width="1.5" PointX="0.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IQMS_Model.EXP_USER" Width="1.5" PointX="11.25" PointY="1.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="IQMS_Model.PR_EMP" Width="1.5" PointX="9.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IQMS_Model.S_USER_GENERAL" Width="1.5" PointX="2.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IQMS_Model.TEAM_MEMBER" Width="1.5" PointX="3.875" PointY="1.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="IQMS_Model.VENDOR" Width="1.5" PointX="7.125" PointY="1.125" IsExpanded="false" />
+        <AssociationConnector Association="IQMS_Model.FK_DOC_LIBR_REF_23380_EPLANT" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="IQMS_Model.FK_S_USER_G_REF_12578_EPLANT" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="IQMS_Model.FK_TEAM_MEM_REF_99417_EPLANT" ManuallyRouted="false" />
+        <AssociationConnector Association="IQMS_Model.FK_VENDOR_REF_21350_EPLANT" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="IQMS_Model.FK_EXP_USER_REF_26325_PR_EMP" ManuallyRouted="false" />
+        <AssociationConnector Association="IQMS_Model.FK_EXP_USER_REF_26325_VENDOR" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="IQMS_Model.REMIT_TO" Width="1.5" PointX="9.375" PointY="21.5" />
+        <AssociationConnector Association="IQMS_Model.FK_REMIT_TO_REF_6085_VENDOR" />
+        <EntityTypeShape EntityType="IQMS_Model.DOC_TEAM" Width="1.5" PointX="7.75" PointY="0.75" />
+        <AssociationConnector Association="IQMS_Model.FK_DOC_TEAM_REF_464_DOC_LIBR" />
+        <AssociationConnector Association="IQMS_Model.FK_DOC_TEAM_REF_469_TEAM_MEM" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,75 @@
+﻿@model iq_add_user.Models.PR_EMP
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PR_EMP</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FIRST_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FIRST_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LAST_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LAST_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SSNMBR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSNMBR)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BADGENO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BADGENO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PK_HIDE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PK_HIDE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

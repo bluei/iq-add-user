@@ -1,0 +1,134 @@
+﻿@model IEnumerable<iq_add_user.Models.IQMSUserRow>
+
+@{
+    ViewBag.Title = "ListUsers";
+}
+
+<h2>ListUsers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddUser", null, new { @class = "btn btn-primary" })
+</p>
+<div id="tsection">
+    <table class="display compact" id="listUsers" cellspacing="0">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccountStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserEmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EplantId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EplantName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmpNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeamMemberId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExpenseUserId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExpenseApprover)
+                </th>
+                <th>User Controls Section</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="bg-danger">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EplantId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EplantName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmpNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeamMemberId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExpenseUserId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExpenseApprover)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Username }) |
+                        @if (item.AccountStatus == "OPEN")
+                        {
+                            @Html.ActionLink("Lock", "Lock", new { id = item.Username })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("UnLock", "UnLock", new { id = item.Username })
+                        }
+                        @if (item.ExpenseUserId == null)
+                        {
+                            @Html.ActionLink(" |Add Expense", "AddExpenseUser", new { id = item.Username }, new { title = "click HERE" })
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts {
+
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src="/DataTables-1.10.7/media/js/jquery.js"></script>
+
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
+    @*<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>*@
+
+
+    <script>
+
+        $(document).ready(function () {
+            $("#listUsers")
+                .dataTable({
+                "scrollY": "500px",
+                "scrollX": true,
+                "scrollCollapse": true,
+                "paging": false
+                })
+        });
+        $("h2").fadeIn();
+    </script>
+}

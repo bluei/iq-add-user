@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>The Ultimate IQMS Tool</h1>
+    <p class="lead">This program is designed to automate the creation of new users in IQMS</p>
+</div>
+
+
+<h2>Setup</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Web Config Settings:</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+            <li>PlainfieldExpenseDocPath - This is the default path of the Plainfield expense document library.</li>
+            <li>PlainfieldDefaultDocTeamIds - These are the Team Member IDs that will be added to every Expense Library Document Team. (IQMS and AP Staff)</li>
+            <li>AdServer, AdAdminUsr and AdAdminPwd - The service account to connect to Active Directory</li>
+            <li>AdRootOU - Specififes the top level OU to search for LDAP queries</li>
+            <li>AdExpenseOU - The OU in which to put the Expense Group</li>
+            <li>NewPwdFormat - The format string to generate the IQMS user password based on the last name. The {0} is where lastname is plugged.</li>
+        </ul>
+    </div>
+</div>
+
+<h2>What it Does</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Program Flow</h3>
+    </div>
+    <div class="panel-body">
+        <p>The program follows these steps</p>
+        <ol>
+            <li><strong>Enter required fields: </strong>Enter required fields: first, last, email and username.</li>
+            <li><strong>Add Employee</strong> - If an employee record does not exist, it is added.  
+            If a record already exists, it ensures that the email is populated.</li> 
+            <li><strong>Add User</strong> - If a user exists, it ensures the email is populated.  If not, a user is added.
+            If Copy Settings was checked, the settings are copied from the selected Copy From user.</li>
+            <li><strong>Add Team Member</strong> - If Add Team Member or Add Expense User are checked, A team member record is created.
+            If a team member record already exists for that person, it ensures that the email is populated.  
+            If Copy Settings was checked, it copies the settings from the selected CopyFrom user.</li>
+            <li><strong>Add Expense User</strong> - does several things...
+            <ul>
+                <li>Checks if a vendor record exists and creates one for this person if necessary</li>
+                <li>Adds the Expense User record</li>
+                <li>Checks if an Expense library exists and creates one if necessary</li>
+                <li>Adds the default team members, the user, and the approver to the expense document library team</li>
+                <li>Creates the newtwork folder for the new expense library</li>
+            </ul>
+            </li>
+            <li><strong>Confirms the results</strong> - A success page is displayed with a comprehensive listing of what was done.</li>
+        </ol>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+}
