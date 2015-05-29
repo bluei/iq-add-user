@@ -1,0 +1,18 @@
+﻿@using iq_add_user.Models
+@{
+    ViewBag.Title = "UserGrid";
+}
+
+<h2>UserGrid</h2>
+
+<div class="frame">
+    <div class="control">
+        @Html.EJ().DateTimePicker("DateTime").Value("04/15/2014 2:47 AM").EnableRTL(true).Locale("en-US")
+    </div>
+</div>
+
+@*@(Html.EJ().Grid<iq_add_user.Models.IQMSUserRow>
+    ("FlatGrid")
+    .Datasource((IEnumerable<object>
+        )ViewBag.datasource))*@
+

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<iq_add_user.Models.IQMSUserRow>
+@{
+    ViewBag.Title = "ListUsers";
+}
+
+<h2>ListUsers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddUser", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="display compact" id="listUsers" cellspacing="0">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserEmail)
+            </th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+
+@section scripts {
+
+    <!-- jQuery -->
+
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
+    @*<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>*@
+
+
+    <script>
+
+        $(document).ready(function () {
+            $('#listUsers').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '@Url.Action("UserListData")',
+                columns: [
+                    { text: 'User Name', dataField: 'Username' },
+                    { text: 'Status', dataField: 'AccountStatus' },
+                    { text: 'User Email', dataField: 'UserEmail'}
+                ]
+
+            });
+        });
+
+    </script>
+}
